@@ -4,41 +4,76 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { sidebarSections, bottomLinks } from "./sidebar.config";
+
+function SidebarHeader() {
+  return (
+    <div className="flex items-center justify-between py-2 px-4">
+      <h1 className="text-h4 font-medium text-grey-800">Logo</h1>
+    </div>
+  );
+}
+
+function SidebarLink({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: string;
+  label: string;
+}) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
+  return (
+    <Link
+      href={href}
+      className={`flex items-center gap-4 py-1 pl-3 pr-2
+        ${
+          isActive
+            ? "font-semibold bg-brand-50 text-brand-500"
+            : "hover:bg-brand-50 hover:text-brand-500"
+        }`}
+    >
+      <Image src={icon} alt={label} width={20} height={20} />
+      <span className="text-subtitle2">{label}</span>
+    </Link>
+  );
+}
+
+function SidebarSection({
+  title,
+  links,
+}: {
+  title?: string;
+  links: { href: string; icon: string; label: string }[];
+}) {
+  return (
+    <div>
+      {title && (
+        <p className="text-overline text-grey-500 pl-3 mb-2">{title}</p>
+      )}
+      <ul className="flex flex-col gap-1">
+        {links.map((link) => (
+          <li key={link.href}>
+            <SidebarLink {...link} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function Sidebar() {
   const pathname = usePathname();
 
   return (
     <aside className="h-screen w-70 flex-col">
-      <div className="flex flex-row py-2 px-4 justify-between">
-        <h1 className="text-h4">Logo</h1>
-      </div>
+      <SidebarHeader />
 
       <nav className="flex flex-col p-4 gap-2">
         {sidebarSections.map((section) => (
-          <div key={section.title || "home-section"}>
-            {section.title && <p className="text-overline pl-3 mb-2">{section.title}</p>}
-
-            <ul className="flex flex-col gap-1">
-              {section.links.map((link) => {
-                return (
-                  <li className="" key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={`flex items-center gap-4 py-1 pl-3 pr-2`}
-                    >
-                      <Image
-                        src={link.icon}
-                        alt={link.label}
-                        width={20}
-                        height={20}
-                      />
-                      <span className="text-subtitle2">{link.label}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <SidebarSection key={section.title || "home"} {...section} />
         ))}
       </nav>
     </aside>
