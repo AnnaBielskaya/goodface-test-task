@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-brand-50: #f5f6fd;
+  --color-brand-100: #e8ebfb;
+  --color-brand-200: #d7daf8;
+  --color-brand-300: #c0bff4;
+  --color-brand-400: #a49ef1;
+  --color-brand-500: #8779ee;
+  --color-brand-600: #5a46e8;
+  --color-brand-700: #4732d8;
+  --color-brand-800: #3825b2;
+  --color-brand-900: #2c1d8d;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-grey-50: #f9fafb;
+  --color-grey-100: #f3f4f6;
+  --color-grey-200: #e5e7eb;
+  --color-grey-300: #d1d5db;
+  --color-grey-400: #9ca3af;
+  --color-grey-500: #6b7280;
+  --color-grey-600: #4b5563;
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
+  --color-grey-900: #111827;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --font-sans: "Space Grotesk", sans-serif;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Headings */
+  --text-h1: 48px;
+  --leading-h1: 56px;
+  --font-weight-h1: 400;
+  --tracking-h1: -1px;
+
+  --text-h2: 40px;
+  --leading-h2: 48px;
+  --font-weight-h2: 400;
+  --tracking-h2: -0.5px;
+
+  --text-h3: 32px;
+  --leading-h3: 40px;
+  --font-weight-h3: 400;
+  --tracking-h3: 0;
+
+  --text-h4: 24px;
+  --leading-h4: 32px;
+  --font-weight-h4: 600;
+  --tracking-h4: 0;
+
+  --text-h5: 20px;
+  --leading-h5: 28px;
+  --font-weight-h5: 600;
+  --tracking-h5: 0;
+
+  --text-h6: 18px;
+  --leading-h6: 24px;
+  --font-weight-h6: 600;
+  --tracking-h6: 0;
+
+  /* Subtitles */
+  --text-subtitle1: 18px;
+  --leading-subtitle1: 24px;
+  --font-weight-subtitle1: 600;
+  --tracking-subtitle1: 0.2px;
+
+  --text-subtitle2: 14px;
+  --leading-subtitle2: 20px;
+  --font-weight-subtitle2: 600;
+  --tracking-subtitle2: 0.2px;
+
+  /* Body */
+  --text-body1: 16px;
+  --leading-body1: 24px;
+  --font-weight-body1: 600;
+  --tracking-body1: 0;
+
+  --text-body2: 14px;
+  --leading-body2: 20px;
+  --font-weight-body2: 400;
+  --tracking-body2: 0;
+
+  /* Caption */
+  --text-caption: 12px;
+  --leading-caption: 16px;
+  --font-weight-caption: 400;
+  --tracking-caption: 0.2px;
+
+  /* Overline */
+  --text-overline: 12px;
+  --leading-overline: 20px;
+  --font-weight-overline: 600;
+  --tracking-overline: 0.7px;
+  --text-transform-overline: uppercase;
 }
