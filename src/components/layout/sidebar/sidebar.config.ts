@@ -16,7 +16,7 @@ export const sidebarSections: NavSection[] = [
       {
         href: "/",
         label: "Dashboard",
-        icon: "/icons/dashboard.svg",
+        icon: "/icons/layout-dashboard.svg",
       },
     ],
   },
