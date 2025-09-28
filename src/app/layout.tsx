@@ -1,4 +1,3 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -22,12 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={spaceGrotesk.className}>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 ml-[280px] px-12 p-6 bg-page-bg overflow-y-auto h-screen">
-            {children}
-          </main>
-        </div>
+        <Sidebar />
+        <main className="ml-[280px] h-screen overflow-y-auto px-12 p-6 bg-page-bg">
+          {children}
+        </main>
       </body>
     </html>
   );
