@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  /* Brand */
   --color-brand-50: #f5f6fd;
   --color-brand-100: #e8ebfb;
   --color-brand-200: #d7daf8;
@@ -12,6 +13,7 @@
   --color-brand-800: #3825b2;
   --color-brand-900: #2c1d8d;
 
+  /* Grey */
   --color-grey-50: #f9fafb;
   --color-grey-100: #f3f4f6;
   --color-grey-200: #e5e7eb;
@@ -23,71 +25,63 @@
   --color-grey-800: #1F2A37;
   --color-grey-900: #111827;
 
+  /* Fonts */
   --font-sans: "Space Grotesk", sans-serif;
 
-  /* Headings */
+  /* Text sizes */
   --text-h1: 48px;
-  --leading-h1: 56px;
-  --font-weight-h1: 400;
-  --tracking-h1: -1px;
-
   --text-h2: 40px;
-  --leading-h2: 48px;
-  --font-weight-h2: 400;
-  --tracking-h2: -0.5px;
-
   --text-h3: 32px;
-  --leading-h3: 40px;
-  --font-weight-h3: 400;
-  --tracking-h3: 0;
-
   --text-h4: 24px;
-  --leading-h4: 32px;
-  --font-weight-h4: 600;
-  --tracking-h4: 0;
-
   --text-h5: 20px;
-  --leading-h5: 28px;
-  --font-weight-h5: 600;
-  --tracking-h5: 0;
-
   --text-h6: 18px;
-  --leading-h6: 24px;
-  --font-weight-h6: 600;
-  --tracking-h6: 0;
-
-  /* Subtitles */
   --text-subtitle1: 18px;
-  --leading-subtitle1: 24px;
-  --font-weight-subtitle1: 600;
-  --tracking-subtitle1: 0.2px;
-
   --text-subtitle2: 14px;
-  --leading-subtitle2: 20px;
-  --font-weight-subtitle2: 600;
-  --tracking-subtitle2: 0.2px;
-
-  /* Body */
   --text-body1: 16px;
-  --leading-body1: 24px;
-  --font-weight-body1: 600;
-  --tracking-body1: 0;
-
   --text-body2: 14px;
-  --leading-body2: 20px;
-  --font-weight-body2: 400;
-  --tracking-body2: 0;
-
-  /* Caption */
   --text-caption: 12px;
-  --leading-caption: 16px;
-  --font-weight-caption: 400;
-  --tracking-caption: 0.2px;
-
-  /* Overline */
   --text-overline: 12px;
-  --leading-overline: 20px;
-  --font-weight-overline: 600;
-  --tracking-overline: 0.7px;
-  --text-transform-overline: uppercase;
+}
+
+@layer utilities {
+  .text-h1 {
+    @apply text-[48px] leading-[56px] font-[400] tracking-[-1px];
+  }
+  .text-h2 {
+    @apply text-[40px] leading-[48px] font-[400] tracking-[-0.5px];
+  }
+  .text-h3 {
+    @apply text-[32px] leading-[40px] font-[400];
+  }
+  .text-h4 {
+    @apply text-[24px] leading-[32px] font-[600];
+  }
+  .text-h5 {
+    @apply text-[20px] leading-[28px] font-[600];
+  }
+  .text-h6 {
+    @apply text-[18px] leading-[24px] font-[600];
+  }
+
+  .text-subtitle1 {
+    @apply text-[18px] leading-[24px] font-[600] tracking-[0.2px];
+  }
+  .text-subtitle2 {
+    @apply text-[14px] leading-[20px] font-[600] tracking-[0.2px];
+  }
+
+  .text-body1 {
+    @apply text-[16px] leading-[24px] font-[600];
+  }
+  .text-body2 {
+    @apply text-[14px] leading-[20px] font-[400];
+  }
+
+  .text-caption {
+    @apply text-[12px] leading-[16px] font-[400] tracking-[0.2px];
+  }
+
+  .text-overline {
+    @apply text-[12px] leading-[20px] font-[600] tracking-[0.7px] uppercase;
+  }
 }

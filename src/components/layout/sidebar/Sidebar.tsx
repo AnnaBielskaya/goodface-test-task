@@ -52,7 +52,7 @@ function SidebarSection({
   return (
     <div>
       {title && (
-        <p className="text-overline text-grey-500 pl-3 mb-2">{title}</p>
+        <p className="text-overline text-grey-700 pl-3 mb-2">{title}</p>
       )}
       <ul className="flex flex-col gap-1">
         {links.map((link) => (
