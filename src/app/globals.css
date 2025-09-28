@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+  --color-page-bg: #fafafa;
+  
   /* Brand */
   --color-brand-50: #f5f6fd;
   --color-brand-100: #e8ebfb;

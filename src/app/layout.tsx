@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={spaceGrotesk.className}>
         <div className="flex min-h-screen">
           <Sidebar /> 
-          <main className="flex-1 p-8">
+          <main className="flex-1 p-8 bg-page-bg">
             {children}
           </main>
         </div>
