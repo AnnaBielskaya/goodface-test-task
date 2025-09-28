@@ -45,7 +45,7 @@ export function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenu
                   className={`flex items-center justify-between rounded-md py-1 px-2 text-subtitle2 transition-colors ${
                     isChildActive
                       ? "text-brand-500 font-semibold"
-                      : "text-grey-600 hover:text-brand-500"
+                      : "text-grey-800 hover:text-brand-500"
                   }`}
                 >
                   <span>{child.label}</span>
