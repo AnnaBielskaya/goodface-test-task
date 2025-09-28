@@ -33,6 +33,7 @@ export default function Services() {
           <Card>
             <OrderSummary />
           </Card>
+          <Button className="mt-4 w-full" label="Checkout"/>
         </div>
       </div>
     </div>

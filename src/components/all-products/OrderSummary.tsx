@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/ui/Button";
 import { PlanLabel } from "@/ui/PlanLabel";
 
 function PlanDetails({ label, value }: { label: string; value: string }) {
@@ -26,6 +27,15 @@ export default function OrderSummary() {
         <PlanDetails label="Location" value="United Kingdom" />
         <PlanDetails label="Price per IP" value="$2.50" />
         <PlanDetails label="Subscription period" value="12 months" />
+      </div>
+      <div className="w-full flex flex-row gap-2 mt-3">
+        <input placeholder="Add discount code" className="basic-input text-body2"></input>
+        <Button className="w-fit" label="Apply" />
+      </div>
+
+      <div className="border-t border-grey-300 flex items-center justify-between pt-4">
+        <p>Total</p>
+        <p className="text-h4 text-grey-800">$240.00</p>
       </div>
     </div>
   );
