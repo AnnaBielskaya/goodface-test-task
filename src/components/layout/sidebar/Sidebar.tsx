@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { sidebarSections, bottomLinks } from "./sidebar.config";
+import { Button } from "@/ui/Button";
 
 function SidebarHeader() {
   return (
@@ -71,7 +72,9 @@ export default function Sidebar() {
     <aside className="h-screen w-70 flex-col">
       <SidebarHeader />
 
-      <nav className="flex flex-col p-4 gap-2">
+      <nav className="flex flex-col p-4 gap-4">
+        <Button label="Button" />
+
         {sidebarSections.map((section) => (
           <SidebarSection key={section.title || "home"} {...section} />
         ))}
