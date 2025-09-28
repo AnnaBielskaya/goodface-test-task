@@ -4,25 +4,29 @@ import Plans from "@/components/all-products/Plans";
 import { ProductHeader } from "@/components/all-products/ProductHeader";
 import SubscriptionSelector from "@/components/all-products/SubscriptionSelector";
 import { Card } from "@/ui/Card";
+import OrderSummary from "@/components/all-products/OrderSummary";
 
 export default function Home() {
   return (
-    <div className="flex flex-row gap-6">
-      <div className="flex flex-col gap-6">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+      <div className="flex flex-col gap-6 lg:col-span-2">
         <Card>
           <ProductHeader />
-          <IpSelector />
-          <SubscriptionSelector />
-          <LocationSelector />
+          <div className="mt-6 flex flex-col gap-8">
+            <IpSelector />
+            <SubscriptionSelector />
+            <LocationSelector />
+          </div>
         </Card>
 
         <Card>
           <Plans />
         </Card>
       </div>
-      <div>
+
+      <div className="lg:col-span-1">
         <Card>
-          <h3>Order summary</h3>
+          <OrderSummary />
         </Card>
       </div>
     </div>
