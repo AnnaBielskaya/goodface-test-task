@@ -64,9 +64,57 @@ export default function IpSelector() {
             ))}
           </div>
         )}
+
+        <IpSlider />
       </div>
 
       <Button label="Enter a custom quantity" />
     </div>
   );
+}
+
+function IpSlider() {
+  const [ipCount, setIpCount] = useState(100);
+  const min = 10;
+  const max = 1000;
+
+  const progress = ((ipCount - min) / (max - min)) * 100;
+
+  const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIpCount(Number(event.target.value));
+  };
+
+  const labels = [10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+  return (
+    <div className="relative w-full py-10">
+      <div className="relative h-2 w-full">
+        <div className="absolute top-0 left-0 h-full w-full rounded-full bg-grey-100"></div>
+  
+        <div
+          className="absolute top-0 left-0 h-full rounded-full bg-brand-400"
+          style={{
+            width: progress >= 100 ? "100%" : `${progress}%`,
+          }}
+        ></div>
+
+        <input
+          type="range"
+          min={min}
+          max={max}
+          value={ipCount}
+          onChange={handleSliderChange}
+          className="custom-range-slider absolute top-0 left-0 h-full w-full cursor-pointer appearance-none bg-transparent"
+        />
+      </div>
+  
+      <div className="absolute bottom-0 left-0 mt-2 flex w-full justify-between translate-y-full">
+        {labels.map((label) => (
+          <span key={label} className="text-center text-xs text-grey-500">
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );  
 }
