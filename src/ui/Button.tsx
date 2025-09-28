@@ -5,11 +5,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
 }
 
-export function Button({ icon, label, ...props }: ButtonProps) {
+export function Button({ icon, label, className, ...props }: ButtonProps) {
+  const baseStyles = "btn";
+
+  const finalClassName = `${baseStyles} ${className || ''}`.trim();
+
   return (
     <button
       {...props}
-      className="flex cursor-pointer justify-center gap-2 rounded border border-grey-300 bg-white px-3 py-1 text-sm font-medium text-grey-900 hover:bg-grey-50 transition-colors"
+      className={finalClassName}
     >
       {icon}
       <span>{label}</span>

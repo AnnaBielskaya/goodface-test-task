@@ -8,6 +8,7 @@ import SidebarFooter from "./SidebarFooter";
 import React from "react";
 import type { NavLink } from "./sidebar.config";
 import { NotificationButton } from "./NotificationButton";
+import { PlusIcon } from "@/assets/sidebar-icons/PlusIcon";
 
 function SidebarHeader() {
   return (
@@ -67,7 +68,7 @@ export default function Sidebar() {
       <SidebarHeader />
 
       <nav className="flex flex-col p-4 gap-4 flex-1 overflow-y-auto">
-        <Button label="Buy new proxies" />
+        <Button className="w-full mb-2" icon={<PlusIcon/>} label="Buy new proxies" />
         {sidebarSections.map((section) => (
           <SidebarSection key={section.title || "home"} {...section} />
         ))}

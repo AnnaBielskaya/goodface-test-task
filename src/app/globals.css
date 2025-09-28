@@ -56,6 +56,13 @@
   --text-overline: 12px;
 }
 
+@layer components {
+  .btn {
+    @apply flex flex-row items-center cursor-pointer justify-center gap-1 rounded border border-grey-300 text-grey-800 bg-white px-3 py-1 hover:bg-grey-50 transition-colors;
+    @apply text-[13px] leading-[20px] font-[600]; 
+  }
+}
+
 @layer utilities {
   .text-h1 {
     @apply text-[48px] leading-[56px] font-[400] tracking-[-1px];
