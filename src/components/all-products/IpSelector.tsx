@@ -37,25 +37,27 @@ export default function IpSelector() {
         </button>
 
         {isOpen && (
-          <div className="grid grid-cols-[98px_repeat(4,minmax(0,1fr))] text-center text-sm">
-            <div className="text-left text-subtitle2 text-grey-500">IPs</div>
+          <div className="mt-2 border border-grey-200 rounded grid grid-cols-[100px_repeat(4,minmax(0,1fr))] text-center text-sm overflow-hidden">
+            <div className="bg-grey-100 py-2 px-3 text-left text-subtitle2 text-grey-500 border-b border-grey-200">
+              IPs
+            </div>
 
-            {bundleDiscounts.map((discount) => (
+            {bundleDiscounts.map((discount, idx) => (
               <div
                 key={discount.range}
-                className="text-right text-subtitle2 text-grey-500"
+                className={`bg-grey-100 py-2 px-3 text-right text-subtitle2 text-grey-500`}
               >
                 {discount.range}
               </div>
             ))}
 
-            <div className="text-left text-body2 text-grey-700">
+            <div className="py-2 px-3 text-left text-body2 text-grey-700">
               Price per IP
             </div>
-            {bundleDiscounts.map((discount) => (
+            {bundleDiscounts.map((discount, idx) => (
               <div
                 key={`${discount.range}-price`}
-                className="text-right text-body2 text-grey-700"
+                className={`py-2 px-3 text-right text-body2 text-grey-700`}
               >
                 ${discount.price}
               </div>
