@@ -69,7 +69,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="h-screen w-70 flex-col">
+    <aside className="h-screen max-w-[280px] w-full flex flex-col border-r border-grey-200">
       <SidebarHeader />
 
       <nav className="flex flex-col p-4 gap-4">
