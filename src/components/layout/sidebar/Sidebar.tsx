@@ -3,22 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { sidebarSections, bottomLinks } from "./sidebar.config";
-import type { LinkItem, CollapsibleMenuType, NavSection } from "./sidebar.config";
+import type {
+  LinkItem,
+  CollapsibleMenuType,
+  NavSection,
+} from "./sidebar.config";
 import { Button } from "@/ui/Button";
 import React, { useState } from "react";
-import { NotificationButton } from "./NotificationButton";
 import { PlusIcon } from "@/assets/sidebar-icons/PlusIcon";
-import Image from "next/image";
 import { ChevronRight, ExternalLink } from "lucide-react";
-
-function SidebarHeader() {
-  return (
-    <div className="sidebar-header">
-      <h1 className="text-h4 font-medium text-grey-800">Logo</h1>
-      <NotificationButton />
-    </div>
-  );
-}
+import SidebarFooter from "./SidebarFooter";
+import SidebarHeader from "./SidebarHeader";
 
 function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
   const pathname = usePathname();
@@ -54,9 +49,7 @@ function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenuType) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`sidebar-link flex w-full justify-between ${
-          isActive
-            ? "text-brand-500"
-            : "text-grey-600 hover:text-brand-500"
+          isActive ? "text-brand-500" : "text-grey-600 hover:text-brand-500"
         } hover:bg-brand-50`}
       >
         <div className="flex items-center gap-4">
@@ -86,8 +79,12 @@ function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenuType) {
 
 function SidebarSection({ title, links }: NavSection) {
   return (
-    <div className="mb-4">
-      {title && <p className="sidebar-section-title text-overline text-grey-700">{title}</p>}
+    <div>
+      {title && (
+        <p className="sidebar-section-title text-overline text-grey-700">
+          {title}
+        </p>
+      )}
       <ul className="flex flex-col gap-1">
         {links.map((link) => (
           <li key={link.href}>
@@ -99,43 +96,19 @@ function SidebarSection({ title, links }: NavSection) {
   );
 }
 
-function SidebarFooter() {
-  return (
-    <div className="sidebar-footer">
-      <div className="flex items-center gap-3">
-        <div className="h-9 w-9 rounded-full bg-grey-200"></div>
-        <div className="flex flex-col">
-          <span className="text-subtitle2 text-grey-800">Henry Smith</span>
-          <span className="text-body2 text-grey-500">henry.smith@gmail.com</span>
-        </div>
-      </div>
-      <button className="p-1 cursor-pointer">
-        <Image
-          src="/icons/dots-vertical.svg"
-          alt="More options"
-          width={20}
-          height={20}
-        />
-      </button>
-    </div>
-  );
-}
-
 export default function Sidebar() {
   return (
     <aside className="sidebar flex">
       <SidebarHeader />
       <nav className="sidebar-nav">
-        <div>
-          <Button
-            className="w-full mb-4"
-            icon={<PlusIcon className="h-4 w-4" />}
-            label="Buy new proxies"
-          />
-          {sidebarSections.map((section) => (
-            <SidebarSection key={section.title || "home"} {...section} />
-          ))}
-        </div>
+        <Button
+          className="w-full mb-2"
+          icon={<PlusIcon className="h-4 w-4" />}
+          label="Buy new proxies"
+        />
+        {sidebarSections.map((section) => (
+          <SidebarSection key={section.title || "home"} {...section} />
+        ))}
         <div>
           <ul className="flex flex-col gap-1">
             {bottomLinks.map((link) => (
