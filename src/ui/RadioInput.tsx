@@ -31,7 +31,7 @@ const RadioInput = React.forwardRef<HTMLInputElement, RadioInputProps>(
           {label}
         </span>
         {badge && (
-          <span className="rounded-md bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">
+          <span className="border border-green-300 px-[6] py-[2] rounded bg-green-50 text-caption text-green-800">
             {badge}
           </span>
         )}
