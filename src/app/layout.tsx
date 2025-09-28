@@ -1,10 +1,12 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/layout/sidebar/Sidebar";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "600"], 
+  weight: ["400", "600"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>{children}</body>
+      <body className={spaceGrotesk.className}>
+        <div className="flex min-h-screen">
+          <Sidebar /> 
+          <main className="flex-1 p-8">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   );
 }
