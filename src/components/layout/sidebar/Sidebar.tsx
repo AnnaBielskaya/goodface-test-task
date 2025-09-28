@@ -26,11 +26,11 @@ function SidebarLink({ href, icon: Icon, label }: NavLink) {
   return (
     <Link
       href={href}
-      className={`flex items-center gap-4 rounded-md py-1 pl-3 pr-2 text-grey-600
+      className={`flex items-center gap-4 rounded-md py-1 pl-3 pr-2 transition-colors
         ${
           isActive
-            ? "font-semibold bg-brand-50 text-brand-500"
-            : "hover:bg-brand-50 hover:text-brand-500"
+            ? "bg-brand-50 text-brand-500 font-semibold" 
+            : "text-grey-600 hover:bg-brand-50 hover:text-brand-500"
         }`}
     >
       <Icon className="h-5 w-5" />
@@ -44,7 +44,7 @@ function SidebarSection({
   links,
 }: {
   title?: string;
-  links: NavLink[]; 
+  links: NavLink[];
 }) {
   return (
     <div>
@@ -66,12 +66,8 @@ function SidebarFooter() {
   return (
     <div className="flex items-center justify-between p-3 pl-4 border-t border-grey-200">
       <div className="flex flex-col">
-        <span className="text-subtitle2 text-grey-800">
-          Henry Smith
-        </span>
-        <span className="text-body2 text-grey-800">
-          henry.smith@gmail.com
-        </span>
+        <span className="text-subtitle2 text-grey-800">Henry Smith</span>
+        <span className="text-body2 text-grey-800">henry.smith@gmail.com</span>
       </div>
       <button className="p-1 cursor-pointer">
         <Image
@@ -91,7 +87,11 @@ export default function Sidebar() {
       <SidebarHeader />
 
       <nav className="flex flex-col p-4 gap-4 flex-1 overflow-y-auto">
-        <Button className="w-full mb-2" icon={<PlusIcon/>} label="Buy new proxies" />
+        <Button
+          className="w-full mb-2"
+          icon={<PlusIcon />}
+          label="Buy new proxies"
+        />
         {sidebarSections.map((section) => (
           <SidebarSection key={section.title || "home"} {...section} />
         ))}
