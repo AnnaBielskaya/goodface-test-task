@@ -17,7 +17,7 @@ export default function IpSelector() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <p className="text-subtitle2 text-grey-800">Select number of IPs</p>
+        <h3 className="text-subtitle2 text-grey-800">Select number of IPs</h3>
         <p className="text-subtitle2 text-grey-500">
           Choose the perfect quantity of IPs for your needs effortlessly
         </p>

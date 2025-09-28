@@ -7,8 +7,8 @@
   --color-brand-100: #e8ebfb;
   --color-brand-200: #d7daf8;
   --color-brand-300: #c0bff4;
-  --color-brand-400: #776CEF;
-  --color-brand-500: #5547EB;
+  --color-brand-400: #776cef;
+  --color-brand-500: #5547eb;
   --color-brand-600: #5a46e8;
   --color-brand-700: #4732d8;
   --color-brand-800: #3825b2;
@@ -23,8 +23,20 @@
   --color-grey-500: #6b7280;
   --color-grey-600: #4b5563;
   --color-grey-700: #374151;
-  --color-grey-800: #1F2A37;
+  --color-grey-800: #1f2a37;
   --color-grey-900: #111827;
+
+  /* Green */
+  --color-green-50: #e9f9ef;
+  --color-green-100: #baedcd;
+  --color-green-200: #99e4b5;
+  --color-green-300: #6bd893;
+  --color-green-400: #4ed17e;
+  --color-green-500: #22c55e;
+  --color-green-600: #1fb356;
+  --color-green-700: #188c43;
+  --color-green-800: #136c34;
+  --color-green-900: #0e5327;
 
   /* Fonts */
   --font-sans: "Space Grotesk", sans-serif;
