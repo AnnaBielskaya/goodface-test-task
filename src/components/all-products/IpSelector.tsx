@@ -69,6 +69,8 @@ export default function IpSelector() {
         <IpSlider />
       </div>
 
+      <div></div>
+
       <Button
         className="w-fit text-brand-500"
         icon={<EditIcon />}

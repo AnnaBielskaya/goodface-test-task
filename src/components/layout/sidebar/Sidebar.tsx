@@ -29,7 +29,7 @@ function SidebarLink({ href, icon: Icon, label }: NavLink) {
       className={`sidebar-link ${
         isActive
           ? "bg-brand-50 text-brand-500 font-semibold"
-          : "text-grey-600 hover:bg-brand-50 hover:text-brand-500"
+          : "text-grey-800 hover:bg-brand-50 hover:text-brand-500"
       }`}
     >
       <Icon className="h-5 w-5" />
@@ -48,7 +48,7 @@ function SidebarSection({
   return (
     <div>
       {title && (
-        <p className="sidebar-section-title">{title}</p>
+        <p className="sidebar-section-title text-overline text-grey-700">{title}</p>
       )}
       <ul className="flex flex-col gap-1">
         {links.map((link) => (

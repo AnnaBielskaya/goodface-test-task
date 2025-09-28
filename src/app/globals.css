@@ -76,7 +76,7 @@
     @apply flex items-center gap-4 rounded-md py-1 pl-3 pr-2 transition-colors;
   }
   .sidebar-section-title {
-    @apply text-overline text-grey-700 pl-3 mb-2;
+    @apply pl-3 mb-2;
   }
   .sidebar-footer {
     @apply flex items-center justify-between p-3 pl-4 border-t border-grey-200;
