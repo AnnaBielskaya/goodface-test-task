@@ -67,20 +67,19 @@ function SidebarSection({
 }
 
 export default function Sidebar() {
-  const pathname = usePathname();
-
   return (
-    <aside className="h-screen max-w-[280px] w-full flex flex-col border-r border-grey-200">
+    <aside className="fixed left-0 top-0 h-screen max-w-[280px] w-full flex flex-col border-r border-grey-200 bg-white">
       <SidebarHeader />
 
-      <nav className="flex flex-col p-4 gap-4">
+      <nav className="flex flex-col p-4 gap-4 flex-1 overflow-y-auto">
         <Button label="Button" />
 
         {sidebarSections.map((section) => (
           <SidebarSection key={section.title || "home"} {...section} />
         ))}
       </nav>
-      <SidebarFooter/>
+
+      <SidebarFooter />
     </aside>
   );
 }

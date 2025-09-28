@@ -23,8 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={spaceGrotesk.className}>
         <div className="flex min-h-screen">
-          <Sidebar /> 
-          <main className="flex-1 px-12 p-6 bg-page-bg">
+          <Sidebar />
+          <main className="flex-1 ml-[280px] px-12 p-6 bg-page-bg overflow-y-auto h-screen">
             {children}
           </main>
         </div>
