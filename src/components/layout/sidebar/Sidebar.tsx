@@ -7,11 +7,13 @@ import { Button } from "@/ui/Button";
 import SidebarFooter from "./SidebarFooter";
 import React from "react";
 import type { NavLink } from "./sidebar.config";
+import { NotificationButton } from "./NotificationButton";
 
 function SidebarHeader() {
   return (
     <div className="flex items-center justify-between py-2 px-4">
       <h1 className="text-h4 font-medium text-grey-800">Logo</h1>
+      <NotificationButton />
     </div>
   );
 }
