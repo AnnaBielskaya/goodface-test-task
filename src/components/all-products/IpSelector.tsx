@@ -3,6 +3,7 @@
 import { Button } from "@/ui/Button";
 import { ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { EditIcon } from "@/assets/icons/EditIcon";
 
 const bundleDiscounts = [
   { range: "10-24", price: "3.00" },
@@ -68,7 +69,11 @@ export default function IpSelector() {
         <IpSlider />
       </div>
 
-      <Button label="Enter a custom quantity" />
+      <Button
+        className="w-fit text-brand-500"
+        icon={<EditIcon />}
+        label="Enter a custom quantity"
+      />
     </div>
   );
 }
@@ -90,7 +95,7 @@ function IpSlider() {
     <div className="relative w-full py-10">
       <div className="relative h-2 w-full">
         <div className="absolute top-0 left-0 h-full w-full rounded-full bg-grey-100"></div>
-  
+
         <div
           className="absolute top-0 left-0 h-full rounded-full bg-brand-400"
           style={{
@@ -107,7 +112,7 @@ function IpSlider() {
           className="custom-range-slider absolute top-0 left-0 h-full w-full cursor-pointer appearance-none bg-transparent"
         />
       </div>
-  
+
       <div className="absolute left-0 mb-2 flex w-full justify-between translate-y-full">
         {labels.map((label) => (
           <span key={label} className="text-center text-xs text-grey-500">
@@ -116,5 +121,5 @@ function IpSlider() {
         ))}
       </div>
     </div>
-  );  
+  );
 }
