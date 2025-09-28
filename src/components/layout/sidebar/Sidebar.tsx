@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { sidebarSections, bottomLinks } from "./sidebar.config";
 import { Button } from "@/ui/Button";
+import SidebarFooter from "./SidebarFooter";
 
 function SidebarHeader() {
   return (
@@ -79,6 +80,7 @@ export default function Sidebar() {
           <SidebarSection key={section.title || "home"} {...section} />
         ))}
       </nav>
+      <SidebarFooter/>
     </aside>
   );
 }
