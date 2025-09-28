@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { sidebarSections } from "./sidebar.config";
 import { Button } from "@/ui/Button";
-import SidebarFooter from "./SidebarFooter";
 import React from "react";
 import type { NavLink } from "./sidebar.config";
 import { NotificationButton } from "./NotificationButton";
 import { PlusIcon } from "@/assets/sidebar-icons/PlusIcon";
+import Image from "next/image";
 
 function SidebarHeader() {
   return (
@@ -58,6 +58,29 @@ function SidebarSection({
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function SidebarFooter() {
+  return (
+    <div className="flex items-center justify-between p-3 pl-4 border-t border-grey-200">
+      <div className="flex flex-col">
+        <span className="text-subtitle2 text-grey-800">
+          Henry Smith
+        </span>
+        <span className="text-body2 text-grey-800">
+          henry.smith@gmail.com
+        </span>
+      </div>
+      <button className="p-1 cursor-pointer">
+        <Image
+          src="/icons/dots-vertical.svg"
+          alt="More options"
+          width={20}
+          height={20}
+        />
+      </button>
     </div>
   );
 }
