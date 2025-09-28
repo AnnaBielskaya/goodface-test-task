@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { sidebarSections } from "./sidebar.config";
 import { Button } from "@/ui/Button";
 import SidebarFooter from "./SidebarFooter";
+import React from "react";
+import type { NavLink } from "./sidebar.config";
 
 function SidebarHeader() {
   return (
@@ -15,29 +16,21 @@ function SidebarHeader() {
   );
 }
 
-function SidebarLink({
-  href,
-  icon,
-  label,
-}: {
-  href: string;
-  icon: string;
-  label: string;
-}) {
+function SidebarLink({ href, icon: Icon, label }: NavLink) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
   return (
     <Link
       href={href}
-      className={`flex items-center gap-4 py-1 pl-3 pr-2
+      className={`flex items-center gap-4 rounded-md py-1 pl-3 pr-2 text-grey-600
         ${
           isActive
             ? "font-semibold bg-brand-50 text-brand-500"
             : "hover:bg-brand-50 hover:text-brand-500"
         }`}
     >
-      <Image src={icon} alt={label} width={20} height={20} />
+      <Icon className="h-5 w-5" />
       <span className="text-subtitle2">{label}</span>
     </Link>
   );
@@ -48,7 +41,7 @@ function SidebarSection({
   links,
 }: {
   title?: string;
-  links: { href: string; icon: string; label: string }[];
+  links: NavLink[]; 
 }) {
   return (
     <div>
@@ -72,7 +65,7 @@ export default function Sidebar() {
       <SidebarHeader />
 
       <nav className="flex flex-col p-4 gap-4 flex-1 overflow-y-auto">
-        <Button label="Button" />
+        <Button label="Buy new proxies" />
         {sidebarSections.map((section) => (
           <SidebarSection key={section.title || "home"} {...section} />
         ))}

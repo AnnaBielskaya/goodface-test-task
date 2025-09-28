@@ -1,16 +1,18 @@
 import React from 'react';
 
-import DashboardIcon from '@/assets/sidebar-icons/layout-dashboard.svg';
-import ObservabilityIcon from '@/assets/sidebar-icons/eye.svg';
-import LogMonitorIcon from '@/assets/sidebar-icons/monitor.svg';
-import SummaryIcon from '@/assets/sidebar-icons/select-all.svg';
-import ProxyListIcon from '@/assets/sidebar-icons/clipboard-list.svg';
-import UserSettingsIcon from '@/assets/sidebar-icons/users.svg';
-import AllProductsIcon from '@/assets/sidebar-icons/basket.svg';
-import ApiKeysIcon from '@/assets/sidebar-icons/key.svg';
-import ApiRequestsIcon from '@/assets/sidebar-icons/code-circle-2.svg';
-import ResellersStatisticsIcon from '@/assets/sidebar-icons/coin.svg';
-import AffiliateProgramIcon from '@/assets/sidebar-icons/new-user.svg';
+import { DashboardIcon } from "@/assets/sidebar-icons/DashboardIcon";
+import { CoinIcon } from '@/assets/sidebar-icons/CoinIcon';
+import { LogMonitorIcon } from '@/assets/sidebar-icons/LogMonitorIcon';
+import { SummaryIcon } from '@/assets/sidebar-icons/SummaryIcon';
+import { ProxyListIcon } from '@/assets/sidebar-icons/ProxyListIcon';
+import { UserSettingsIcon } from '@/assets/sidebar-icons/UserSettingsIcon';
+import { AllProductsIcon } from '@/assets/sidebar-icons/AllProductsIcon';
+
+import { ApiKeysIcon } from '@/assets/sidebar-icons/ApiKeysIcon';
+import { ApiRequestsIcon } from '@/assets/sidebar-icons/ApiRequestsIcon';
+import { ResellersStatisticsIcon } from '@/assets/sidebar-icons/ResellersStatisticsIcon';
+import { AffiliateProgramIcon } from '@/assets/sidebar-icons/AffiliateProgramIcon';
+
 import BillingIcon from '@/assets/sidebar-icons/receipt-2.svg';
 import HelpIcon from '@/assets/sidebar-icons/help-circle.svg';
 
@@ -35,7 +37,7 @@ export const sidebarSections: NavSection[] = [
   {
     title: "System Overview",
     links: [
-      { href: "/observability", label: "Observability Overview", icon: ObservabilityIcon },
+      { href: "/observability", label: "Observability Overview", icon: CoinIcon },
       { href: "/live-log-monitor", label: "Live Log Monitor", icon: LogMonitorIcon },
     ],
   },
@@ -64,7 +66,8 @@ export const sidebarSections: NavSection[] = [
   },
 ];
 
+/*
 export const bottomLinks: NavLink[] = [
   { href: "/billing", label: "Billing", icon: BillingIcon },
   { href: "/help", label: "Help", icon: HelpIcon },
-];
+]; */
