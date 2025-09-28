@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { sidebarSections, bottomLinks } from "./sidebar.config";
 import type {
   LinkItem,
-  CollapsibleMenuType,
   NavSection,
 } from "./sidebar.config";
 import { Button } from "@/ui/Button";
@@ -14,6 +13,7 @@ import { PlusIcon } from "@/assets/sidebar-icons/PlusIcon";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import SidebarFooter from "./SidebarFooter";
 import SidebarHeader from "./SidebarHeader";
+import { CollapsibleMenu } from "./CollapsibleMenu";
 
 function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
   const pathname = usePathname();
@@ -36,44 +36,6 @@ function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
       </div>
       {external && <ExternalLink className="ml-auto h-4 w-4" />}
     </Link>
-  );
-}
-
-function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenuType) {
-  const pathname = usePathname();
-  const isActive = children.some((child) => pathname === child.href);
-  const [isOpen, setIsOpen] = useState(isActive);
-
-  return (
-    <div>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`sidebar-link flex w-full justify-between ${
-          isActive ? "text-brand-500" : "text-grey-600 hover:text-brand-500"
-        } hover:bg-brand-50`}
-      >
-        <div className="flex items-center gap-4">
-          <Icon className="h-5 w-5" />
-          <span className={`text-subtitle2 ${isActive ? "font-semibold" : ""}`}>
-            {label}
-          </span>
-        </div>
-        <ChevronRight
-          className={`h-4 w-4 transition-transform ${
-            isOpen ? "rotate-90" : ""
-          }`}
-        />
-      </button>
-      {isOpen && (
-        <ul className="mt-2 ml-5 flex flex-col gap-1 border-l-2 border-grey-200 pl-4">
-          {children.map((child) => (
-            <li key={child.href}>
-              <SidebarLink {...child} />
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
   );
 }
 
