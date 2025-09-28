@@ -108,7 +108,7 @@ function IpSlider() {
         />
       </div>
   
-      <div className="absolute bottom-0 left-0 mt-2 flex w-full justify-between translate-y-full">
+      <div className="absolute left-0 mb-2 flex w-full justify-between translate-y-full">
         {labels.map((label) => (
           <span key={label} className="text-center text-xs text-grey-500">
             {label}
