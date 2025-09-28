@@ -12,7 +12,7 @@ import Image from "next/image";
 
 function SidebarHeader() {
   return (
-    <div className="flex items-center justify-between py-2 px-4">
+    <div className="sidebar-header">
       <h1 className="text-h4 font-medium text-grey-800">Logo</h1>
       <NotificationButton />
     </div>
@@ -26,12 +26,11 @@ function SidebarLink({ href, icon: Icon, label }: NavLink) {
   return (
     <Link
       href={href}
-      className={`flex items-center gap-4 rounded-md py-1 pl-3 pr-2 transition-colors
-        ${
-          isActive
-            ? "bg-brand-50 text-brand-500 font-semibold" 
-            : "text-grey-600 hover:bg-brand-50 hover:text-brand-500"
-        }`}
+      className={`sidebar-link ${
+        isActive
+          ? "bg-brand-50 text-brand-500 font-semibold"
+          : "text-grey-600 hover:bg-brand-50 hover:text-brand-500"
+      }`}
     >
       <Icon className="h-5 w-5" />
       <span className="text-subtitle2">{label}</span>
@@ -49,7 +48,7 @@ function SidebarSection({
   return (
     <div>
       {title && (
-        <p className="text-overline text-grey-700 pl-3 mb-2">{title}</p>
+        <p className="sidebar-section-title">{title}</p>
       )}
       <ul className="flex flex-col gap-1">
         {links.map((link) => (
@@ -64,7 +63,7 @@ function SidebarSection({
 
 function SidebarFooter() {
   return (
-    <div className="flex items-center justify-between p-3 pl-4 border-t border-grey-200">
+    <div className="sidebar-footer">
       <div className="flex flex-col">
         <span className="text-subtitle2 text-grey-800">Henry Smith</span>
         <span className="text-body2 text-grey-800">henry.smith@gmail.com</span>
@@ -83,10 +82,9 @@ function SidebarFooter() {
 
 export default function Sidebar() {
   return (
-    <aside className="fixed left-0 top-0 h-screen w-[280px] flex flex-col border-r border-grey-200 bg-white">
+    <aside className="sidebar flex">
       <SidebarHeader />
-
-      <nav className="flex flex-col p-4 gap-4 flex-1 overflow-y-auto">
+      <nav className="sidebar-nav">
         <Button
           className="w-full mb-2"
           icon={<PlusIcon />}
@@ -96,7 +94,6 @@ export default function Sidebar() {
           <SidebarSection key={section.title || "home"} {...section} />
         ))}
       </nav>
-
       <SidebarFooter />
     </aside>
   );
