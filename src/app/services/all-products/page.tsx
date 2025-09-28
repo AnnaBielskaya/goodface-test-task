@@ -12,7 +12,7 @@ export default function Home() {
       <div className="flex flex-col gap-6 lg:col-span-2">
         <Card>
           <ProductHeader />
-          <div className="mt-6 flex flex-col gap-8">
+          <div className="flex flex-col gap-8">
             <IpSelector />
             <SubscriptionSelector />
             <LocationSelector />
