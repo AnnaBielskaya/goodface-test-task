@@ -15,7 +15,7 @@ export function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenu
     <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`sidebar-link flex w-full justify-between ${
+        className={`cursor-pointer sidebar-link flex w-full justify-between ${
           isActive ? "text-brand-500" : "text-grey-800 hover:text-brand-500"
         } hover:bg-brand-50`}
       >
