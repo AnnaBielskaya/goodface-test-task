@@ -29,7 +29,9 @@ export default function Services() {
         icon={<ChevronLeftIcon />}
         label="Back to all"
       />
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[17fr_9fr] lg:gap-8">
+      <div
+        className="content-grid"
+      >
         <div className="flex flex-col gap-6">
           <Card>
             <ProductHeader />
