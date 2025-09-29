@@ -24,7 +24,7 @@ function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={`sidebar-link flex items-center gap-4 justify-between rounded px-3 py-2 transition-colors ${
+      className={`sidebar-link flex items-center gap-4 justify-between rounded px-3 py-1 transition-colors ${
         isActive
           ? "bg-brand-50 text-brand-500"
           : "text-grey-700 hover:bg-brand-50 hover:text-brand-500"
