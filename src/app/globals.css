@@ -99,7 +99,6 @@
     @apply w-full text-body2 rounded-sm border border-grey-300 bg-white px-3 placeholder:text-grey-500 transition-colors;
     @apply focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400/20;
   }
-
   .input-md {
     @apply text-body1 py-2;
   }
@@ -115,13 +114,29 @@
   .basic-table {
     @apply mt-2 border border-grey-200 rounded grid grid-cols-[100px_repeat(4,minmax(0,1fr))] text-center text-sm overflow-hidden;
   }
-
   .cell-header {
     @apply bg-grey-100 py-2 px-3 text-left text-subtitle2 text-grey-500 border-b border-grey-200;
   }
-
   .cell {
     @apply bg-grey-100 py-2 px-3 text-right text-subtitle2 text-grey-500;
+  }
+
+  /* slider */
+
+  .slider {
+    @apply relative w-full appearance-none bg-transparent cursor-pointer z-10;
+  }
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none h-6 w-6 rounded-sm bg-white border border-brand-500;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/icons/thumb-icon.svg");
+  }
+  .slider::-moz-range-thumb {
+    @apply h-6 w-6 rounded-sm bg-white border border-brand-500;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("/icons/thumb-icon.svg");
   }
 }
 

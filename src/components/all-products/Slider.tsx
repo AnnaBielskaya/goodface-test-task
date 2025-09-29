@@ -47,19 +47,7 @@ export default function MySlider() {
           step={1}
           value={valueIndex}
           onChange={handleChange}
-          className="
-    relative w-full appearance-none bg-transparent cursor-pointer z-10
-    [&::-webkit-slider-thumb]:appearance-none
-    [&::-webkit-slider-thumb]:h-6
-    [&::-webkit-slider-thumb]:w-6
-    [&::-webkit-slider-thumb]:rounded-sm
-    [&::-webkit-slider-thumb]:bg-white
-    [&::-webkit-slider-thumb]:border
-    [&::-webkit-slider-thumb]:border-brand-500
-    [&::-webkit-slider-thumb]:bg-no-repeat
-    [&::-webkit-slider-thumb]:bg-center
-    [&::-webkit-slider-thumb]:bg-[url('/icons/thumb-icon.svg')]
-  "
+          className="slider"
         />
       </div>
 
