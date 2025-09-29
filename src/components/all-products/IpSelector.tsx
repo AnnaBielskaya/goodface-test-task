@@ -5,13 +5,7 @@ import { ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { EditIcon } from "@/assets/icons/EditIcon";
 import CustomSlider from "./Slider";
-
-const bundleDiscounts = [
-  { range: "10-24", price: "3.00" },
-  { range: "25-49", price: "2.80" },
-  { range: "50-99", price: "2.50" },
-  { range: "100+", price: "2.25" },
-];
+import { bundleDiscounts } from "@/config/pricing";
 
 function CustomQuantityBlock({
   value,

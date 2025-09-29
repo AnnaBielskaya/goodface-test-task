@@ -10,12 +10,16 @@ import OrderSummary from "@/components/all-products/OrderSummary";
 import { Button } from "@/ui/Button";
 import { ChevronLeftIcon } from "@/assets/icons/ChevronLeftIcon";
 import { useState } from "react";
+import { getPricePerIP } from "@/config/pricing";
 
 export default function Services() {
   const [quantity, setQuantity] = useState(100);
   const [subscriptionPeriod, setSubscriptionPeriod] = useState(3);  
   const [location, setLocation] = useState("United Kingdom");
   const [discountPercentage, setDiscountPercentage] = useState(0);
+
+  const pricePerIP = getPricePerIP(quantity);
+  const total = quantity * pricePerIP * subscriptionPeriod; 
 
   return (
     <div className="flex flex-col gap-6">
@@ -54,9 +58,9 @@ export default function Services() {
             <OrderSummary
               quantity={quantity}
               location={location}
-              pricePerIP={0}
+              pricePerIP={pricePerIP}
               subscriptionPeriod={subscriptionPeriod}
-              total={0}
+              total={total}
             />
           </Card>
           <Button
