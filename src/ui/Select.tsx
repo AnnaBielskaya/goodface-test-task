@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
@@ -18,6 +18,8 @@ interface SelectProps {
   onChange?: (value: Option) => void;
 }
 
+const DROPDOWN_HEIGHT = 200; 
+
 export default function Select({
   hint,
   options,
@@ -25,36 +27,60 @@ export default function Select({
   onChange,
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<Option>(value ?? options[0]);
-
+  const [direction, setDirection] = useState<"up" | "down">("down");
+  const selectRef = useRef<HTMLDivElement>(null);
+  const selectedOption = value ?? options[0];
+  const handleToggle = () => {
+    if (!isOpen && selectRef.current) {
+      const rect = selectRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      if (rect.bottom + DROPDOWN_HEIGHT > windowHeight && rect.top > DROPDOWN_HEIGHT) {
+        setDirection("up");
+      } else {
+        setDirection("down");
+      }
+    }
+    setIsOpen((prev) => !prev);
+  };
+  
   const handleSelect = (option: Option) => {
     if (option.disabled) return;
-    setSelected(option);
     onChange?.(option);
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+
   return (
-    <div>
+    <div ref={selectRef}>
       <div className="relative">
         <button
           type="button"
-          onClick={() => setIsOpen((prev) => !prev)}
-          className={`cursor-pointer flex w-full items-center justify-between rounded-md border border-grey-300 bg-white px-3 py-[10] text-left text-sm ${
-            selected.disabled ? "cursor-not-allowed bg-grey-100" : ""
+          onClick={handleToggle} 
+          className={`cursor-pointer flex w-full items-center justify-between rounded-md border border-grey-300 bg-white px-3 py-[10px] text-left text-sm ${
+            selectedOption.disabled ? "cursor-not-allowed bg-grey-100" : ""
           }`}
         >
           <div className="flex items-center gap-2">
-            {selected.icon && (
+            {selectedOption.icon && (
               <Image
-                src={selected.icon}
-                alt={selected.id}   
+                src={selectedOption.icon}
+                alt={selectedOption.id}
                 width={18}
                 height={18}
                 className="rounded-sm"
               />
             )}
-            <span>{selected.label}</span>
+            <span>{selectedOption.label}</span>
           </div>
           <ChevronDown
             className={`h-4 w-4 text-grey-700 transition-transform ${
@@ -64,7 +90,12 @@ export default function Select({
         </button>
 
         {isOpen && (
-          <ul className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md border border-grey-200 bg-white shadow-md">
+          <ul
+            className={`absolute z-10 w-full max-h-60 overflow-auto rounded-md border border-grey-200 bg-white shadow-md
+              ${''}
+              ${direction === 'down' ? 'top-full mt-1' : 'bottom-full mb-1'}
+            `}
+          >
             {options.map((option) => (
               <li
                 key={option.id}
