@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react"; 
+import React from "react";
 import SliderMarks from "./SliderMarks";
 
 const THUMB_WIDTH = 24;
@@ -9,23 +9,28 @@ const MIN_INDEX = 0;
 const MAX_INDEX = marks.length - 1;
 
 type MySliderProps = {
-  value: number; 
-  onValueChange: (newValue: number) => void; 
+  value: number;
+  onValueChange: (newValue: number) => void;
 };
 
 export default function MySlider({ value, onValueChange }: MySliderProps) {
-  const valueIndex = marks.indexOf(value);
-  if (valueIndex === -1) {
-    console.warn(`Value ${value} not found in slider marks.`);
-  }
-
+  const valueIndex = marks.reduce(
+    (prevIndex, currentMark, currentIndex) => {
+      const prevDifference = Math.abs(marks[prevIndex] - value);
+      const currentDifference = Math.abs(currentMark - value);
+      return currentDifference < prevDifference ? currentIndex : prevIndex;
+    },
+    0
+  );
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newIndex = Number(e.target.value);
     const newIpValue = marks[newIndex];
     onValueChange(newIpValue);
   };
 
-  const progressPercent = MAX_INDEX > 0 && valueIndex !== -1 ? (valueIndex / MAX_INDEX) * 100 : 0;
+  const progressPercent =
+    MAX_INDEX > 0 ? (valueIndex / MAX_INDEX) * 100 : 0;
   const displayValue = value;
 
   return (
@@ -33,7 +38,9 @@ export default function MySlider({ value, onValueChange }: MySliderProps) {
       <div
         className="bg-brand-500 absolute -top-7 whitespace-nowrap rounded px-2 py-1 text-xs font-semibold text-white"
         style={{
-          left: `calc(${progressPercent}% * (100% - ${THUMB_WIDTH}px) / 100% + ${THUMB_WIDTH / 2}px)`,
+          left: `calc(${progressPercent}% * (100% - ${THUMB_WIDTH}px) / 100% + ${
+            THUMB_WIDTH / 2
+          }px)`,
           transform: "translateX(-50%)",
         }}
       >
