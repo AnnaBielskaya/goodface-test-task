@@ -78,7 +78,6 @@ export default function IpSelector() {
 
       {inputMode === "slider" ? (
         <div className="space-y-4">
-          {/*<IpSlider />*/}
           <CustomSlider/>
           <Button
             className="w-fit text-brand-500"
