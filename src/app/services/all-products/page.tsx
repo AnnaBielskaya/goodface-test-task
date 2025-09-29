@@ -13,7 +13,7 @@ import { useState } from "react";
 
 export default function Services() {
   const [quantity, setQuantity] = useState(10);
-  const [subscriptionPeriod, setSubscriptionPeriod] = useState(3);
+  const [subscriptionPeriod, setSubscriptionPeriod] = useState(3);  
   const [location, setLocation] = useState("United Kingdom");
   const [discountPercentage, setDiscountPercentage] = useState(0);
 
@@ -30,7 +30,9 @@ export default function Services() {
           <Card>
             <ProductHeader />
             <div className="flex flex-col gap-8">
-              <IpSelector />
+              <IpSelector  
+                value={quantity} 
+                onValueChange={setQuantity} />
               <SubscriptionSelector
                 value={subscriptionPeriod}
                 onValueChange={setSubscriptionPeriod}

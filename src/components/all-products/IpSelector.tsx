@@ -13,14 +13,19 @@ const bundleDiscounts = [
   { range: "100+", price: "2.25" },
 ];
 
-function CustomQuantityBlock({ onSelectRangeClick }: { onSelectRangeClick: () => void }) {
-  const [quantity, setQuantity] = useState('');
-
+function CustomQuantityBlock({
+  value,
+  onValueChange,
+  onSelectRangeClick,
+}: {
+  value: number;
+  onValueChange: (value: number) => void;
+  onSelectRangeClick: () => void;
+}) {
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    
-    if (/^\d*$/.test(value)) {
-      setQuantity(value);
+    const inputValue = e.target.value;
+    if (/^\d*$/.test(inputValue)) {
+      onValueChange(Number(inputValue));
     }
   };
 
@@ -29,16 +34,15 @@ function CustomQuantityBlock({ onSelectRangeClick }: { onSelectRangeClick: () =>
       <div className="space-y-1">
         <p className="text-subtitle2 text-grey-800">Custom quantity</p>
         <input
-          type="text" 
-          inputMode="numeric" 
+          type="text"
+          inputMode="numeric"
           pattern="[0-9]*"
           className="input input-md"
           placeholder="10"
-          value={quantity} 
+          value={value || ""} 
           onChange={handleQuantityChange}
         />
       </div>
-
       <Button
         className="w-fit text-brand-500"
         label="Select from the range"
@@ -48,7 +52,12 @@ function CustomQuantityBlock({ onSelectRangeClick }: { onSelectRangeClick: () =>
   );
 }
 
-export default function IpSelector() {
+type IpSelectorProps = {
+  value: number;
+  onValueChange: (newValue: number) => void;
+};
+
+export default function IpSelector({ value, onValueChange }: IpSelectorProps) {
   const [isOpen, setIsOpen] = useState(true);
   const [inputMode, setInputMode] = useState<"slider" | "manual">("slider");
 
@@ -69,7 +78,6 @@ export default function IpSelector() {
             }`}
           />
         </button>
-
         {isOpen && (
           <div className="basic-table">
             <div className="cell-header">IPs</div>
@@ -95,7 +103,7 @@ export default function IpSelector() {
 
       {inputMode === "slider" ? (
         <div className="space-y-4">
-          <CustomSlider/>
+          <CustomSlider />
           <Button
             className="w-fit text-brand-500"
             icon={<EditIcon />}
@@ -104,7 +112,11 @@ export default function IpSelector() {
           />
         </div>
       ) : (
-        <CustomQuantityBlock onSelectRangeClick={() => setInputMode("slider")} />
+        <CustomQuantityBlock
+          value={value}
+          onValueChange={onValueChange}
+          onSelectRangeClick={() => setInputMode("slider")}
+        />
       )}
     </div>
   );

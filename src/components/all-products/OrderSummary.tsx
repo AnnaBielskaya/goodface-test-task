@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react"; // ✅ Импортируем useState
+import { useState } from "react"; 
 import { Button } from "@/ui/Button";
 import { PlanLabel } from "@/ui/PlanLabel";
 
@@ -19,7 +19,6 @@ function PlanDetails({
   );
 }
 
-// ✅ Расширяем пропсы
 type OrderSummaryProps = {
   quantity: number;
   location: string;
