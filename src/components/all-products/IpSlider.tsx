@@ -39,7 +39,7 @@ export default function IpSlider() {
         ></div>
 
         <div
-          className="absolute top-1/2 -translate-y-1/2 w-[22px] h-[22px] border-2 border-[#5547EB] rounded-[4px] bg-white flex items-center justify-center cursor-pointer"
+          className="absolute top-1/2 -translate-y-1/2 w-[22px] h-[22px] border-1 border-[#5547EB] rounded-[4px] bg-white flex items-center justify-center cursor-pointer"
           style={{ left: `calc(${percent}% - 11px)` }}
           onMouseDown={(e) => {
             const sliderRect = (e.currentTarget.parentNode as HTMLDivElement).getBoundingClientRect();
