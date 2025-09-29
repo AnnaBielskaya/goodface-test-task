@@ -17,7 +17,7 @@ export default function SidebarNavContent() {
         <SidebarSection key={section.title || "home"} {...section} />
       ))}
       <div>
-        <ul className="border-t pt-4 border-grey-200 flex flex-col gap-1">
+        <ul className="sidebar-bottom-links">
           {bottomLinks.map((link) => (
             <li key={link.label}>
               {"children" in link ? (

@@ -21,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.className} flex h-screen overflow-hidden`}
+        className={`body ${spaceGrotesk.className}`}
       >
         <Sidebar />
         <main className="content">{children}</main>

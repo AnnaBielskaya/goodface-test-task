@@ -5,7 +5,7 @@ export default function SidebarFooter() {
       <div className="sidebar-footer">
         <div className="flex flex-col">
           <span className="text-subtitle2 text-grey-800">Henry Smith</span>
-          <span className="text-body2 text-grey-800">henry.smith@gmail.com</span>
+          <span className="text-body2 text-grey-600">henry.smith@gmail.com</span>
         </div>
         <button className="p-1 cursor-pointer">
           <Image
