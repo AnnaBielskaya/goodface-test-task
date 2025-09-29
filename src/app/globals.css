@@ -126,8 +126,15 @@
     @apply w-full mt-10 relative;
   }
   .slider-tooltip {
-    @apply bg-brand-500 absolute -top-7 whitespace-nowrap rounded px-2 py-1 text-xs font-semibold text-white;
+    @apply bg-brand-500 absolute -top-[40px] whitespace-nowrap rounded px-2 py-1 text-body1 font-semibold text-white;
   }
+  .slider-tooltip::after {
+    content: url("/icons/slider-tooltip.svg");
+    @apply absolute left-1/2;
+    transform: translateX(-50%);
+    top: 1px;
+    z-index: -1;
+  }  
   .slider-track-container {
     @apply relative h-6 flex items-center;
   }
