@@ -31,7 +31,7 @@ export default function LocationSelector({
 
   return (
     <div>
-      <h3 className="text-subtitle2 text-grey-800 mb-2">Select location</h3>
+      <h3 className="text-label text-grey-800 mb-2">Select location</h3>
 
       <Select
         options={countries}

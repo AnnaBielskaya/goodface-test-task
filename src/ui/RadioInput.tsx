@@ -27,7 +27,7 @@ const RadioInput = React.forwardRef<HTMLInputElement, RadioInputProps>(
               : "border border-grey-300"
           }`}
         />
-        <span className="mx-2 text-subtitle2 text-grey-800">
+        <span className="mx-2 text-subtitle1 text-grey-800">
           {label}
         </span>
         {badge && (

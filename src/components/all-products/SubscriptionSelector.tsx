@@ -20,7 +20,7 @@ export default function SubscriptionSelector({
 
   return (
     <div>
-      <h3 className="text-subtitle2 text-grey-800 mb-2">
+      <h3 className="text-label text-grey-800 mb-2">
         Select subscription cycle
       </h3>
 

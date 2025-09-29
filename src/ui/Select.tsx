@@ -80,7 +80,7 @@ export default function Select({
                 className="rounded-sm"
               />
             )}
-            <span>{selectedOption.label}</span>
+            <span className="text-body2">{selectedOption.label}</span>
           </div>
           <ChevronDown
             className={`h-4 w-4 text-grey-700 transition-transform ${
