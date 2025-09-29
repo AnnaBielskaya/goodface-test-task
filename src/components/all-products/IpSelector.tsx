@@ -26,7 +26,7 @@ export default function IpSelector() {
       </div>
       <div>
         <button
-          className="flex flex-row gap-1 items-center cursor-pointer"
+          className="toggle-button"
           onClick={() => setIsOpen(!isOpen)}
         >
           <p className="text-subtitle2 text-grey-800">Bundle discounts</p>
@@ -38,15 +38,15 @@ export default function IpSelector() {
         </button>
 
         {isOpen && (
-          <div className="mt-2 border border-grey-200 rounded grid grid-cols-[100px_repeat(4,minmax(0,1fr))] text-center text-sm overflow-hidden">
-            <div className="bg-grey-100 py-2 px-3 text-left text-subtitle2 text-grey-500 border-b border-grey-200">
+          <div className="basic-table">
+            <div className="cell-header">
               IPs
             </div>
 
             {bundleDiscounts.map((discount, idx) => (
               <div
                 key={discount.range}
-                className={`bg-grey-100 py-2 px-3 text-right text-subtitle2 text-grey-500`}
+                className={`cell`}
               >
                 {discount.range}
               </div>
