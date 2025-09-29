@@ -122,6 +122,12 @@
     @apply bg-grey-100 py-2 px-3 text-right text-subtitle2 text-grey-500;
   }
 
+  /* card */
+
+  .card {
+    @apply flex flex-col gap-6 rounded-lg border border-grey-200 bg-white p-4 lg:p-6;
+  }
+
   /* slider */
   .slider-container {
     @apply w-full mt-10 relative;
