@@ -86,9 +86,20 @@
     @apply flex items-center justify-between p-3 pl-4 border-t border-grey-200;
   }
 
-  .basic-input {
-    @apply w-full rounded-sm border border-grey-300 bg-white px-3 placeholder:text-grey-500 transition-colors;
+  /* input */
+
+  .input {
+    @apply w-full text-body2 rounded-sm border border-grey-300 bg-white px-3 placeholder:text-grey-500 transition-colors;
     @apply focus:border-brand-400 focus:outline-none focus:ring-1 focus:ring-brand-400/20;
+  }
+
+  .input-md {
+    @apply text-body1 py-2;
+  }
+
+  /* separator */
+  .separator {
+    @apply w-full h-px bg-grey-200;
   }
 }
 

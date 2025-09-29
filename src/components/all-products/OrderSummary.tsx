@@ -29,7 +29,7 @@ export default function OrderSummary() {
         <PlanDetails label="Subscription period" value="12 months" />
       </div>
       <div className="w-full flex flex-row gap-2 mt-3">
-        <input placeholder="Add discount code" className="basic-input text-body2"></input>
+        <input placeholder="Add discount code" className="input"></input>
         <Button className="w-fit" label="Apply" />
       </div>
 

@@ -19,7 +19,7 @@ export default function IpSelector() {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h3 className="text-subtitle2 text-grey-800">Select number of IPs</h3>
+        <p className="text-subtitle2 text-grey-800">Select number of IPs</p>
         <p className="text-subtitle2 text-grey-500">
           Choose the perfect quantity of IPs for your needs effortlessly
         </p>
@@ -66,19 +66,23 @@ export default function IpSelector() {
           </div>
         )}
       </div>
-
       <IpSlider />
-
       <Button
         className="w-fit text-brand-500"
         icon={<EditIcon />}
         label="Enter a custom quantity"
       />{" "}
-
-      <Button
-        className="w-fit text-brand-500"
-        label="Select from the range"
-      />
     </div>
   );
+}
+
+function CustomQuantityBlock() {
+  <div className="space-y-4">
+    <div className="space-y-1">
+      <p className="text-subtitle2 text-grey-800">Custom quantity</p>
+      <input className="input input-md" />
+    </div>
+
+    <Button className="w-fit text-brand-500" label="Select from the range" />
+  </div>;
 }
