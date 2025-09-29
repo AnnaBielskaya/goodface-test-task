@@ -96,11 +96,6 @@
   .input-md {
     @apply text-body1 py-2;
   }
-
-  /* separator */
-  .separator {
-    @apply w-full h-px bg-grey-200;
-  }
 }
 
 @layer utilities {
