@@ -60,8 +60,9 @@
   .content {
     @apply flex-1 overflow-y-auto bg-gray-100 pt-[88px] pb-6 px-4 lg:py-6 lg:ml-[280px] lg:px-12;
   }
+
   .btn {
-    @apply flex flex-row items-center cursor-pointer justify-center gap-1 rounded border border-grey-300 text-grey-800 bg-white px-3 py-1 hover:border-grey-400 transition-colors;
+    @apply flex flex-row items-center cursor-pointer font-bold justify-center gap-1 rounded border border-grey-300 text-grey-800 bg-white px-3 py-1 hover:border-grey-400 transition-colors;
     @apply text-[13px] leading-[20px] font-[600];
   }
   .primary-btn {
@@ -182,7 +183,7 @@
     @apply text-[32px] leading-[40px] font-[400];
   }
   .text-h4 {
-    @apply text-[24px] leading-[32px] font-[600];
+    @apply text-[24px] leading-[32px] font-medium;
   }
   .text-h5 {
     @apply text-[20px] leading-[28px] font-[600];
@@ -201,7 +202,10 @@
     @apply text-[16px] leading-[24px] font-[600];
   }
   .text-body2 {
-    @apply text-[14px] leading-[20px] font-[400];
+    @apply text-[14px] leading-[20px] font-medium;
+  }
+  .text-label {
+    @apply text-[14px] leading-[20px] font-bold tracking-[0.2px];
   }
 
   .text-caption {
