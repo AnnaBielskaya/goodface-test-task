@@ -10,7 +10,7 @@ const bundleDiscounts = [
   { range: "10-24", price: "3.00" },
   { range: "25-49", price: "2.80" },
   { range: "50-99", price: "2.50" },
-  { range: "100-249", price: "2.25" },
+  { range: "100+", price: "2.25" },
 ];
 
 function CustomQuantityBlock({ onSelectRangeClick }: { onSelectRangeClick: () => void }) {
