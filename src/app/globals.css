@@ -75,6 +75,13 @@
   }
   .sidebar-nav {
     @apply flex flex-col p-4 gap-4 flex-1 overflow-y-auto;
+    
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .sidebar-nav::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
   .sidebar-link {
     @apply flex items-center gap-4 rounded-md py-1 pl-3 pr-2 transition-colors;
