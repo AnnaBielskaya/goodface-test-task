@@ -24,7 +24,7 @@ function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={`sidebar-link ${
+      className={`sidebar-link flex items-center gap-4 justify-between rounded px-3 py-2 transition-colors ${
         isActive
           ? "bg-brand-50 text-brand-500"
           : "text-grey-700 hover:bg-brand-50 hover:text-brand-500"
@@ -32,7 +32,7 @@ function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
     >
       <div className="flex items-center gap-4">
         {Icon && <Icon className="h-5 w-5" />}
-        <span className="text-subtitle2 text-grey-800">{label}</span>
+        <span className="text-subtitle2">{label}</span>
       </div>
       {external && <ExternalLink className="ml-auto h-4 w-4" />}
     </Link>
