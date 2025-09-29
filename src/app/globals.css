@@ -108,6 +108,9 @@
   .input-md {
     @apply text-body1 py-2;
   }
+  .input[type="radio"] {
+    @apply text-[16px];
+  }
 
   /* toggle */
 
