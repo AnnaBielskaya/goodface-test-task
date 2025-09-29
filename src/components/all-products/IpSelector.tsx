@@ -4,7 +4,6 @@ import { Button } from "@/ui/Button";
 import { ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { EditIcon } from "@/assets/icons/EditIcon";
-import IpSlider from "./IpSlider";
 import CustomSlider from "./Slider";
 
 const bundleDiscounts = [
