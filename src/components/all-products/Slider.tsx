@@ -15,7 +15,7 @@ function SliderMarks({
   marks: number[];
 }) {
   return (
-    <div className="relative w-full mt-2 h-5">
+    <div className="relative w-full mt-1 h-5">
       {marks.map((mark, index) => {
         const percent = (index / (marks.length - 1)) * 100;
         const style = {
@@ -27,7 +27,7 @@ function SliderMarks({
         return (
           <span
             key={mark}
-            className="absolute text-xs text-gray-500"
+            className="absolute text-body2 text-grey-500"
             style={style}
           >
             {mark}

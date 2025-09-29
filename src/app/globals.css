@@ -229,7 +229,7 @@
     z-index: -1;
   }
   .slider-track-container {
-    @apply relative h-6 mt-10 mb-3 flex items-center;
+    @apply relative h-6 mt-10 mb-1 flex items-center;
   }
   .slider-track-background {
     @apply absolute w-full h-2 bg-gray-200 rounded-full;
