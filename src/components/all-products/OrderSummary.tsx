@@ -55,7 +55,7 @@ export default function OrderSummary({
           }`}
         />
       </div>
-      <div className="w-full flex flex-row gap-2 mt-3">
+      <div className="discount-box">
         <input
           placeholder="Add discount code"
           className="input"
@@ -69,7 +69,7 @@ export default function OrderSummary({
         />
       </div>
 
-      <div className="border-t border-grey-300 flex items-center justify-between pt-4">
+      <div className="total-sum">
         <p>Total</p>
         <p className="text-h4 text-grey-800">${total.toFixed(2)}</p>
       </div>

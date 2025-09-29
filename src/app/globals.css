@@ -177,10 +177,11 @@
   .select-hint {
     @apply mt-1 text-xs text-grey-500;
   }
+
   /* radio */
 
   .radio-input {
-    @apply flex cursor-pointer items-center rounded p-3;
+    @apply flex cursor-pointer items-center font-medium rounded p-3;
   }
   .radio-input-selected {
     @apply bg-brand-50 ring-2 ring-brand-500;
@@ -207,7 +208,13 @@
     @apply border border-green-300 px-[6px] py-[2px] rounded bg-green-50 text-caption text-green-800;
   }
 
+  /* product header */
+  .product-header {
+    @apply flex flex-row items-start gap-4;
+  }
+
   /* slider */
+
   .slider-container {
     @apply w-full mt-10 relative;
   }
@@ -244,6 +251,15 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("/icons/thumb-icon.svg");
+  }
+
+  /* order summary */
+
+  .total-sum {
+    @apply border-t border-grey-300 flex items-center justify-between pt-4;
+  }
+  .discount-box {
+    @apply w-full flex flex-row gap-2 mt-3;
   }
 }
 
