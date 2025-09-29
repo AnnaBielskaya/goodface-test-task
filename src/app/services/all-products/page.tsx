@@ -15,12 +15,12 @@ import PaymentMethods from "@/components/all-products/PaymentMethods";
 
 export default function Services() {
   const [quantity, setQuantity] = useState(100);
-  const [subscriptionPeriod, setSubscriptionPeriod] = useState(3);  
+  const [subscriptionPeriod, setSubscriptionPeriod] = useState(3);
   const [location, setLocation] = useState("United Kingdom");
   const [discountPercentage, setDiscountPercentage] = useState(0);
 
   const pricePerIP = getPricePerIP(quantity);
-  const total = quantity * pricePerIP * subscriptionPeriod; 
+  const total = quantity * pricePerIP * subscriptionPeriod;
 
   return (
     <div className="flex flex-col gap-6">
@@ -35,17 +35,12 @@ export default function Services() {
           <Card>
             <ProductHeader />
             <div className="flex flex-col gap-8">
-              <IpSelector  
-                value={quantity} 
-                onValueChange={setQuantity} />
+              <IpSelector value={quantity} onValueChange={setQuantity} />
               <SubscriptionSelector
                 value={subscriptionPeriod}
                 onValueChange={setSubscriptionPeriod}
               />
-              <LocationSelector 
-                value={location} 
-                onValueChange={setLocation} 
-              />
+              <LocationSelector value={location} onValueChange={setLocation} />
             </div>
           </Card>
 
@@ -67,8 +62,9 @@ export default function Services() {
           <Button
             className="primary-btn mt-4 w-full"
             label="Continue to checkout"
+            disabled={quantity < 10 || quantity > 1000}
           />
-          <PaymentMethods/>
+          <PaymentMethods />
         </div>
       </div>
     </div>
