@@ -32,7 +32,7 @@ export function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenu
         />
       </button>
       {isOpen && (
-        <ul className="mt-2 ml-5 flex flex-col gap-1 border-l-2 border-grey-200 pl-4">
+        <ul className="mt-2 ml-5 flex flex-col">
           {children.map((child: LinkItem) => {
             const isChildActive = pathname === child.href;
 
@@ -40,10 +40,10 @@ export function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenu
               <li key={child.href}>
                 <Link
                   href={child.href}
-                  className={`flex items-center justify-between rounded-md py-1 px-2 text-subtitle2 transition-colors ${
+                  className={`collapsible-menu-link ${
                     isChildActive
-                      ? "text-brand-500 font-semibold"
-                      : "text-grey-800 hover:text-brand-500"
+                      ? "active"
+                      : ""
                   }`}
                 >
                   <span>{child.label}</span>
