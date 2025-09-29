@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 const THUMB_WIDTH = 24;
 const marks = [10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
@@ -44,9 +44,17 @@ type MySliderProps = {
 };
 
 export default function MySlider({ value, onValueChange }: MySliderProps) {
+  useEffect(() => {
+    if (value === 0) {
+      onValueChange(marks[0]);
+    }
+  }, [value, onValueChange]);
+
+  const valueForCalculation = value === 0 ? marks[0] : value;
+
   const valueIndex = marks.reduce((prevIndex, currentMark, currentIndex) => {
-    const prevDifference = Math.abs(marks[prevIndex] - value);
-    const currentDifference = Math.abs(currentMark - value);
+    const prevDifference = Math.abs(marks[prevIndex] - valueForCalculation);
+    const currentDifference = Math.abs(currentMark - valueForCalculation);
     return currentDifference < prevDifference ? currentIndex : prevIndex;
   }, 0);
 
@@ -94,3 +102,4 @@ export default function MySlider({ value, onValueChange }: MySliderProps) {
     </div>
   );
 }
+
