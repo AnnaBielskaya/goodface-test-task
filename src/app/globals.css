@@ -151,6 +151,42 @@
     @apply flex flex-col gap-6 rounded-lg border border-grey-200 bg-white p-4 lg:p-6;
   }
 
+  /* plan-label */
+
+  .plan-label {
+    @apply flex items-center gap-2;
+  }
+
+  /* radio */
+
+  .radio-input {
+    @apply flex cursor-pointer items-center rounded p-3;
+  }
+  .radio-input-selected {
+    @apply bg-brand-50 ring-2 ring-brand-500;
+  }
+  .radio-input-unselected {
+    @apply ring-1 ring-grey-300 hover:bg-brand-50 hover:ring-brand-500;
+  }
+
+  .radio-circle {
+    @apply border flex h-4 w-4 items-center justify-center rounded-full transition-colors;
+  }
+  .radio-circle-selected {
+    @apply border-6 border-brand-500;
+  }
+  .radio-circle-unselected {
+    @apply border border-grey-300;
+  }
+
+  .radio-label {
+    @apply mx-2 text-subtitle1 text-grey-800;
+  }
+
+  .radio-badge {
+    @apply border border-green-300 px-[6px] py-[2px] rounded bg-green-50 text-caption text-green-800;
+  }
+
   /* slider */
   .slider-container {
     @apply w-full mt-10 relative;

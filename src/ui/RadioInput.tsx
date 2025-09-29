@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface RadioInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -12,33 +12,25 @@ const RadioInput = React.forwardRef<HTMLInputElement, RadioInputProps>(
 
     return (
       <label
-        className={`flex cursor-pointer items-center rounded p-3 ${
-          isSelected
-            ? "bg-brand-50 ring-2 ring-brand-500"
-            : "ring-1 ring-grey-300 hover:bg-brand-50 hover:ring-brand-500"
-        } ${className || ''}`}
+        className={`radio-input ${
+          isSelected ? "radio-input-selected" : "radio-input-unselected"
+        } ${className || ""}`}
       >
         <input type="radio" ref={ref} className="sr-only" {...props} />
 
         <span
-          className={`border flex h-4 w-4 items-center justify-center rounded-full transition-colors ${
-            isSelected
-              ? "border-6 border-brand-500"
-              : "border border-grey-300"
+          className={`radio-circle ${
+            isSelected ? "radio-circle-selected" : "radio-circle-unselected"
           }`}
         />
-        <span className="mx-2 text-subtitle1 text-grey-800">
-          {label}
-        </span>
-        {badge && (
-          <span className="border border-green-300 px-[6] py-[2] rounded bg-green-50 text-caption text-green-800">
-            {badge}
-          </span>
-        )}
+        <span className="radio-label">{label}</span>
+
+        {badge && <span className="radio-badge">{badge}</span>}
       </label>
     );
   }
 );
-RadioInput.displayName = 'RadioInput';
+
+RadioInput.displayName = "RadioInput";
 
 export { RadioInput };

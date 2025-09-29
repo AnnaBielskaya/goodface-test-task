@@ -8,7 +8,7 @@ type PlanLabelProps = {
 
 export function PlanLabel({ text }: PlanLabelProps) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="plan-label">
       <Image
         src="/icons/circle-check-filled.svg"
         alt="All products logo"
