@@ -11,6 +11,7 @@ import { Button } from "@/ui/Button";
 import { ChevronLeftIcon } from "@/assets/icons/ChevronLeftIcon";
 import { useState } from "react";
 import { getPricePerIP } from "@/config/pricing";
+import PaymentMethods from "@/components/all-products/PaymentMethods";
 
 export default function Services() {
   const [quantity, setQuantity] = useState(100);
@@ -67,6 +68,7 @@ export default function Services() {
             className="primary-btn mt-4 w-full"
             label="Continue to checkout"
           />
+          <PaymentMethods/>
         </div>
       </div>
     </div>
