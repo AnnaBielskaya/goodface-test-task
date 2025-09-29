@@ -8,13 +8,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({ icon, label, className, ...props }: ButtonProps) {
   const baseStyles = "btn";
 
-  const finalClassName = `${baseStyles} ${className || ''}`.trim();
+  const finalClassName = `${baseStyles} ${className || ""}`.trim();
 
   return (
-    <button
-      {...props}
-      className={finalClassName}
-    >
+    <button className={finalClassName} {...props}>
       {icon}
       <span>{label}</span>
     </button>

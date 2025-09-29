@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react"; 
+import { useState } from "react";
 import { Button } from "@/ui/Button";
 import { PlanLabel } from "@/ui/PlanLabel";
 
@@ -54,7 +54,6 @@ export default function OrderSummary({
             subscriptionPeriod === 1 ? "month" : "months"
           }`}
         />
-        
       </div>
       <div className="w-full flex flex-row gap-2 mt-3">
         <input
@@ -66,6 +65,7 @@ export default function OrderSummary({
         <Button
           className="w-fit"
           label="Apply"
+          disabled={!discountCode.trim()}
         />
       </div>
 

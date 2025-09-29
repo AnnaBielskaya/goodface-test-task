@@ -64,6 +64,7 @@
   .btn {
     @apply flex flex-row items-center cursor-pointer font-bold justify-center gap-1 rounded border border-grey-300 text-grey-800 bg-white px-3 py-1 hover:border-grey-400 transition-colors;
     @apply text-[13px] leading-[20px] font-[600];
+    @apply disabled:border-grey-200 disabled:text-grey-600 disabled:cursor-default;
   }
   .primary-btn {
     @apply py-2 border-none bg-brand-500 text-white hover:bg-brand-700;
