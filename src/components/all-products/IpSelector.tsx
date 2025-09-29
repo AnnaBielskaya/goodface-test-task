@@ -13,8 +13,26 @@ const bundleDiscounts = [
   { range: "100-249", price: "2.25" },
 ];
 
+function CustomQuantityBlock({ onSelectRangeClick }: { onSelectRangeClick: () => void }) {
+  return (
+    <div className="space-y-8">
+      <div className="space-y-1">
+        <p className="text-subtitle2 text-grey-800">Custom quantity</p>
+        <input className="input input-md" />
+      </div>
+
+      <Button 
+        className="w-fit text-brand-500" 
+        label="Select from the range"
+        onClick={onSelectRangeClick} 
+      />
+    </div>
+  );
+}
+
 export default function IpSelector() {
   const [isOpen, setIsOpen] = useState(true);
+  const [inputMode, setInputMode] = useState<"slider" | "manual">("slider");
 
   return (
     <div className="flex flex-col gap-6">
@@ -25,10 +43,7 @@ export default function IpSelector() {
         </p>
       </div>
       <div>
-        <button
-          className="toggle-button"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="toggle-button" onClick={() => setIsOpen(!isOpen)}>
           <p className="text-subtitle2 text-grey-800">Bundle discounts</p>
           <ChevronUp
             className={`h-5 w-5 text-grey-500 transition-transform ${
@@ -39,19 +54,12 @@ export default function IpSelector() {
 
         {isOpen && (
           <div className="basic-table">
-            <div className="cell-header">
-              IPs
-            </div>
-
+            <div className="cell-header">IPs</div>
             {bundleDiscounts.map((discount, idx) => (
-              <div
-                key={discount.range}
-                className={`cell`}
-              >
+              <div key={discount.range} className={`cell`}>
                 {discount.range}
               </div>
             ))}
-
             <div className="py-2 px-3 text-left text-body2 text-grey-700">
               Price per IP
             </div>
@@ -66,23 +74,20 @@ export default function IpSelector() {
           </div>
         )}
       </div>
-      <IpSlider />
-      <Button
-        className="w-fit text-brand-500"
-        icon={<EditIcon />}
-        label="Enter a custom quantity"
-      />{" "}
+
+      {inputMode === "slider" ? (
+        <div className="space-y-4">
+          <IpSlider />
+          <Button
+            className="w-fit text-brand-500"
+            icon={<EditIcon />}
+            label="Enter a custom quantity"
+            onClick={() => setInputMode("manual")}
+          />
+        </div>
+      ) : (
+        <CustomQuantityBlock onSelectRangeClick={() => setInputMode("slider")} />
+      )}
     </div>
   );
-}
-
-function CustomQuantityBlock() {
-  <div className="space-y-4">
-    <div className="space-y-1">
-      <p className="text-subtitle2 text-grey-800">Custom quantity</p>
-      <input className="input input-md" />
-    </div>
-
-    <Button className="w-fit text-brand-500" label="Select from the range" />
-  </div>;
 }
