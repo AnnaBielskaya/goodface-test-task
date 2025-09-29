@@ -1,12 +1,42 @@
 "use client";
 
 import React from "react";
-import SliderMarks from "./SliderMarks";
 
 const THUMB_WIDTH = 24;
 const marks = [10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 const MIN_INDEX = 0;
 const MAX_INDEX = marks.length - 1;
+
+function SliderMarks({
+  thumbWidth,
+  marks,
+}: {
+  thumbWidth: number;
+  marks: number[];
+}) {
+  return (
+    <div className="relative w-full mt-2 h-5">
+      {marks.map((mark, index) => {
+        const percent = (index / (marks.length - 1)) * 100;
+        const style = {
+          left: `calc(${percent}% * (100% - ${thumbWidth}px) / 100% + ${
+            thumbWidth / 2
+          }px)`,
+          transform: "translateX(-50%)",
+        };
+        return (
+          <span
+            key={mark}
+            className="absolute text-xs text-gray-500"
+            style={style}
+          >
+            {mark}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
 
 type MySliderProps = {
   value: number;
@@ -14,29 +44,25 @@ type MySliderProps = {
 };
 
 export default function MySlider({ value, onValueChange }: MySliderProps) {
-  const valueIndex = marks.reduce(
-    (prevIndex, currentMark, currentIndex) => {
-      const prevDifference = Math.abs(marks[prevIndex] - value);
-      const currentDifference = Math.abs(currentMark - value);
-      return currentDifference < prevDifference ? currentIndex : prevIndex;
-    },
-    0
-  );
-  
+  const valueIndex = marks.reduce((prevIndex, currentMark, currentIndex) => {
+    const prevDifference = Math.abs(marks[prevIndex] - value);
+    const currentDifference = Math.abs(currentMark - value);
+    return currentDifference < prevDifference ? currentIndex : prevIndex;
+  }, 0);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newIndex = Number(e.target.value);
     const newIpValue = marks[newIndex];
     onValueChange(newIpValue);
   };
 
-  const progressPercent =
-    MAX_INDEX > 0 ? (valueIndex / MAX_INDEX) * 100 : 0;
+  const progressPercent = MAX_INDEX > 0 ? (valueIndex / MAX_INDEX) * 100 : 0;
   const displayValue = value;
 
   return (
-    <div className="w-full mt-10 relative">
+    <div className="slider-container">
       <div
-        className="bg-brand-500 absolute -top-7 whitespace-nowrap rounded px-2 py-1 text-xs font-semibold text-white"
+        className="slider-tooltip"
         style={{
           left: `calc(${progressPercent}% * (100% - ${THUMB_WIDTH}px) / 100% + ${
             THUMB_WIDTH / 2
@@ -47,10 +73,10 @@ export default function MySlider({ value, onValueChange }: MySliderProps) {
         {displayValue} IP
       </div>
 
-      <div className="relative h-6 flex items-center">
-        <div className="absolute w-full h-2 bg-gray-200 rounded-full"></div>
+      <div className="slider-track-container">
+        <div className="slider-track-background"></div>
         <div
-          className="absolute h-2 bg-brand-500 rounded-full"
+          className="slider-track-progress"
           style={{ width: `${progressPercent}%` }}
         ></div>
         <input
