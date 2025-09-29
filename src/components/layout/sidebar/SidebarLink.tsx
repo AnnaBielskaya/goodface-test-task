@@ -1,17 +1,14 @@
 import type { LinkItem } from "./sidebar.config";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ExternalLink } from "lucide-react";
 
-export default function SidebarLink({ href, icon: Icon, endIcon: EndIcon, label, external }: LinkItem) {
+export default function SidebarLink({ href, icon: Icon, endIcon: EndIcon, label }: LinkItem) {
     const pathname = usePathname();
     const isActive = pathname === href;
   
     return (
       <Link
         href={href}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
         className={`sidebar-link text-subtitle2 transition-colors ${
           isActive
             ? "bg-brand-50 text-brand-500"
@@ -22,7 +19,6 @@ export default function SidebarLink({ href, icon: Icon, endIcon: EndIcon, label,
           {Icon && <Icon className="sidebar-icon" />}
           <span className="text-subtitle2">{label}</span>
         </div>
-        {external && <ExternalLink className="ml-auto h-4 w-4" />}
         {EndIcon && <EndIcon className="h-4 w-4 text-brand-500" />}
       </Link>
     );

@@ -20,7 +20,6 @@ export type LinkItem = {
   label: string;
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   endIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  external?: boolean;
 };
 
 export type CollapsibleMenuType = {
@@ -125,12 +124,10 @@ export const bottomLinks: SidebarItem[] = [
       {
         href: "/help/documentation",
         label: "Documentation",
-        external: true,
       },
       {
         href: "/help/how-to-guides",
         label: "Guides How To",
-        external: true,
       },
     ],
   },
