@@ -25,7 +25,17 @@ function CustomQuantityBlock({
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (/^\d*$/.test(inputValue)) {
-      onValueChange(Number(inputValue));
+      let numValue = Number(inputValue);
+      if (numValue > 1000) {
+        numValue = 1000;
+      }
+      onValueChange(numValue);
+    }
+  };
+
+  const handleBlur = () => {
+    if (value && value < 10) {
+      onValueChange(10);
     }
   };
 
@@ -38,9 +48,10 @@ function CustomQuantityBlock({
           inputMode="numeric"
           pattern="[0-9]*"
           className="input input-md"
-          placeholder="10"
-          value={value || ""} 
+          placeholder="10-1000" 
+          value={value || ""}
           onChange={handleQuantityChange}
+          onBlur={handleBlur} 
         />
       </div>
       <Button
@@ -103,7 +114,7 @@ export default function IpSelector({ value, onValueChange }: IpSelectorProps) {
 
       {inputMode === "slider" ? (
         <div className="space-y-4">
-          <CustomSlider />
+          <CustomSlider  />
           <Button
             className="w-fit text-brand-500"
             icon={<EditIcon />}
