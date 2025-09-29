@@ -3,7 +3,13 @@
 import { Button } from "@/ui/Button";
 import { PlanLabel } from "@/ui/PlanLabel";
 
-function PlanDetails({ label, value }: { label: string; value: string }) {
+function PlanDetails({
+  label,
+  value,
+}: {
+  label: string;
+  value: string | number;
+}) {
   return (
     <div className="flex flex-row w-full justify-between">
       <p className="text-body2 text-grey-600">{label}</p>
@@ -12,21 +18,39 @@ function PlanDetails({ label, value }: { label: string; value: string }) {
   );
 }
 
-export default function OrderSummary() {
+type OrderSummaryProps = {
+  quantity: number;
+  location: string;
+  pricePerIP: number;
+  subscriptionPeriod: number;
+  total: number;
+};
+
+export default function OrderSummary({
+  quantity,
+  location,
+  pricePerIP,
+  subscriptionPeriod,
+  total,
+}: OrderSummaryProps) {
   return (
     <div className="flex flex-col gap-4">
       <h3 className="text-h5 text-grey-800">Order summary</h3>
       <div className="flex flex-col gap-2">
         <p className="text-subtitle1 text-grey-800">Datacenter Proxies</p>
-
         <PlanLabel text="3-day Trial" />
         <PlanLabel text="Customer Success Manager" />
       </div>
       <div className="flex flex-col gap-2">
-        <PlanDetails label="Quantity of IP" value="341 IPs" />
-        <PlanDetails label="Location" value="United Kingdom" />
-        <PlanDetails label="Price per IP" value="$2.50" />
-        <PlanDetails label="Subscription period" value="12 months" />
+        <PlanDetails label="Quantity of IP" value={`${quantity} IPs`} />
+        <PlanDetails label="Location" value={location} />
+        <PlanDetails label="Price per IP" value={`$${pricePerIP.toFixed(2)}`} />
+        <PlanDetails
+          label="Subscription period"
+          value={`${subscriptionPeriod} ${
+            subscriptionPeriod === 1 ? "month" : "months"
+          }`}
+        />
       </div>
       <div className="w-full flex flex-row gap-2 mt-3">
         <input placeholder="Add discount code" className="input"></input>
@@ -35,7 +59,7 @@ export default function OrderSummary() {
 
       <div className="border-t border-grey-300 flex items-center justify-between pt-4">
         <p>Total</p>
-        <p className="text-h4 text-grey-800">$240.00</p>
+        <p className="text-h4 text-grey-800">${total.toFixed(2)}</p>
       </div>
     </div>
   );

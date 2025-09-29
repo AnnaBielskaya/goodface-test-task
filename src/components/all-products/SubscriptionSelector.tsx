@@ -1,16 +1,22 @@
 "use client";
 
 import { RadioInput } from "@/ui/RadioInput";
-import { useState } from "react";
 
 const subscriptionOptions = [
-  { id: "1m", label: "1 month", badge: null },
-  { id: "3m", label: "3 months", badge: null },
-  { id: "12m", label: "12 months", badge: "Save 20%" },
+  { id: "1m", value: 1, label: "1 month", badge: null },
+  { id: "3m", value: 3, label: "3 months", badge: null },
+  { id: "12m", value: 12, label: "12 months", badge: "Save 20%" },
 ];
 
-export default function SubscriptionSelector() {
-  const [selectedCycle, setSelectedCycle] = useState("3m");
+type SubscriptionSelectorProps = {
+  value: number;
+  onValueChange: (value: number) => void;
+};
+
+export default function SubscriptionSelector({
+  value,
+  onValueChange,
+}: SubscriptionSelectorProps) {
 
   return (
     <div>
@@ -27,8 +33,8 @@ export default function SubscriptionSelector() {
             value={option.id}
             label={option.label}
             badge={option.badge}
-            checked={selectedCycle === option.id}
-            onChange={() => setSelectedCycle(option.id)}
+            checked={value === option.value}
+            onChange={() => onValueChange(option.value)}
           />
         ))}
       </div>
