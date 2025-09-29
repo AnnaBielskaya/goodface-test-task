@@ -70,7 +70,7 @@ export default function IpSelector({ value, onValueChange }: IpSelectorProps) {
     <div className="flex flex-col gap-6">
       <div>
         <p className="text-subtitle2 text-grey-800">Select number of IPs</p>
-        <p className="text-subtitle2 text-grey-500">
+        <p className="text-body-2 text-grey-500">
           Choose the perfect quantity of IPs for your needs effortlessly
         </p>
       </div>

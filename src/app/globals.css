@@ -192,9 +192,8 @@
     @apply text-[18px] leading-[24px] font-[600] tracking-[0.2px];
   }
   .text-subtitle2 {
-    @apply text-[14px] leading-[20px] font-[600] tracking-[0.2px];
+    @apply text-[14px] leading-[20px] font-[500] tracking-[0.2px];
   }
-
   .text-body1 {
     @apply text-[16px] leading-[24px] font-[600];
   }
@@ -207,6 +206,6 @@
   }
 
   .text-overline {
-    @apply text-[12px] leading-[20px] font-[600] tracking-[0.7px] uppercase;
+    @apply text-[12px] leading-[20px] font-medium tracking-[0.7px] uppercase;
   }
 }

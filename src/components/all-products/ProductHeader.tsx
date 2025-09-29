@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function ProductHeader() {
   return (
-    <div className="flex flex-row gap-4">
+    <div className="flex flex-row items-start gap-4">
       <Image
         src="/services/all-products-logo.svg"
         alt="All products logo"
