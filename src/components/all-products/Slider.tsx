@@ -1,33 +1,39 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react"; 
 import SliderMarks from "./SliderMarks";
 
 const THUMB_WIDTH = 24;
-
 const marks = [10, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-
 const MIN_INDEX = 0;
 const MAX_INDEX = marks.length - 1;
 
-export default function MySlider() {
-  const [valueIndex, setValueIndex] = useState(marks.indexOf(50));
+type MySliderProps = {
+  value: number; 
+  onValueChange: (newValue: number) => void; 
+};
+
+export default function MySlider({ value, onValueChange }: MySliderProps) {
+  const valueIndex = marks.indexOf(value);
+  if (valueIndex === -1) {
+    console.warn(`Value ${value} not found in slider marks.`);
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValueIndex(Number(e.target.value));
+    const newIndex = Number(e.target.value);
+    const newIpValue = marks[newIndex];
+    onValueChange(newIpValue);
   };
 
-  const progressPercent = MAX_INDEX > 0 ? (valueIndex / MAX_INDEX) * 100 : 0;
-  const displayValue = marks[valueIndex];
+  const progressPercent = MAX_INDEX > 0 && valueIndex !== -1 ? (valueIndex / MAX_INDEX) * 100 : 0;
+  const displayValue = value;
 
   return (
     <div className="w-full mt-10 relative">
       <div
         className="bg-brand-500 absolute -top-7 whitespace-nowrap rounded px-2 py-1 text-xs font-semibold text-white"
         style={{
-          left: `calc(${progressPercent}% * (100% - ${THUMB_WIDTH}px) / 100% + ${
-            THUMB_WIDTH / 2
-          }px)`,
+          left: `calc(${progressPercent}% * (100% - ${THUMB_WIDTH}px) / 100% + ${THUMB_WIDTH / 2}px)`,
           transform: "translateX(-50%)",
         }}
       >

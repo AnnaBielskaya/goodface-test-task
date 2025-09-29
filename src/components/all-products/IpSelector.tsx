@@ -114,7 +114,7 @@ export default function IpSelector({ value, onValueChange }: IpSelectorProps) {
 
       {inputMode === "slider" ? (
         <div className="space-y-4">
-          <CustomSlider  />
+          <CustomSlider value={value} onValueChange={onValueChange} />
           <Button
             className="w-fit text-brand-500"
             icon={<EditIcon />}
