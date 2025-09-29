@@ -66,7 +66,7 @@ export default function Select({
         <button
           type="button"
           onClick={handleToggle} 
-          className={`cursor-pointer flex w-full items-center justify-between rounded-md border border-grey-300 bg-white px-3 py-[10px] text-left text-sm ${
+          className={`select ${
             selectedOption.disabled ? "cursor-not-allowed bg-grey-100" : ""
           }`}
         >
@@ -91,8 +91,7 @@ export default function Select({
 
         {isOpen && (
           <ul
-            className={`absolute z-10 w-full max-h-60 overflow-auto rounded-md border border-grey-200 bg-white shadow-md
-              ${''}
+            className={`select-options-box
               ${direction === 'down' ? 'top-full mt-1' : 'bottom-full mb-1'}
             `}
           >
@@ -100,11 +99,7 @@ export default function Select({
               <li
                 key={option.id}
                 onClick={() => handleSelect(option)}
-                className={`flex cursor-pointer items-center gap-2 px-3 py-2 text-sm ${
-                  option.disabled
-                    ? "cursor-not-allowed opacity-50"
-                    : "hover:bg-brand-50 hover:text-brand-600"
-                }`}
+                className="select-option"
               >
                 {option.icon && (
                   <Image
@@ -122,7 +117,7 @@ export default function Select({
         )}
       </div>
 
-      {hint && <p className="mt-1 text-xs text-grey-500">{hint}</p>}
+      {hint && <p className="select-hint">{hint}</p>}
     </div>
   );
 }
