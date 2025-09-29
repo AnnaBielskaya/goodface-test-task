@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react"; // ✅ Импортируем useState
 import { Button } from "@/ui/Button";
 import { PlanLabel } from "@/ui/PlanLabel";
 
@@ -18,6 +19,7 @@ function PlanDetails({
   );
 }
 
+// ✅ Расширяем пропсы
 type OrderSummaryProps = {
   quantity: number;
   location: string;
@@ -33,6 +35,8 @@ export default function OrderSummary({
   subscriptionPeriod,
   total,
 }: OrderSummaryProps) {
+  const [discountCode, setDiscountCode] = useState("");
+
   return (
     <div className="flex flex-col gap-4">
       <h3 className="text-h5 text-grey-800">Order summary</h3>
@@ -51,10 +55,19 @@ export default function OrderSummary({
             subscriptionPeriod === 1 ? "month" : "months"
           }`}
         />
+        
       </div>
       <div className="w-full flex flex-row gap-2 mt-3">
-        <input placeholder="Add discount code" className="input"></input>
-        <Button className="w-fit" label="Apply" />
+        <input
+          placeholder="Add discount code"
+          className="input"
+          value={discountCode}
+          onChange={(e) => setDiscountCode(e.target.value)}
+        />
+        <Button
+          className="w-fit"
+          label="Apply"
+        />
       </div>
 
       <div className="border-t border-grey-300 flex items-center justify-between pt-4">

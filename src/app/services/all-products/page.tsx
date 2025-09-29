@@ -35,7 +35,10 @@ export default function Services() {
                 value={subscriptionPeriod}
                 onValueChange={setSubscriptionPeriod}
               />
-              <LocationSelector />
+              <LocationSelector 
+                value={location} 
+                onValueChange={setLocation} 
+              />
             </div>
           </Card>
 
