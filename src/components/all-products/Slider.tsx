@@ -24,6 +24,12 @@ export default function MySlider() {
     <div className="w-full mt-10 relative">
       <div
         className="bg-brand-500 absolute -top-7 whitespace-nowrap rounded px-2 py-1 text-xs font-semibold text-white"
+        style={{
+          left: `calc(${progressPercent}% * (100% - ${THUMB_WIDTH}px) / 100% + ${
+            THUMB_WIDTH / 2
+          }px)`,
+          transform: "translateX(-50%)",
+        }}
       >
         {displayValue} IP
       </div>
@@ -34,7 +40,6 @@ export default function MySlider() {
           className="absolute h-2 bg-brand-500 rounded-full"
           style={{ width: `${progressPercent}%` }}
         ></div>
-
         <input
           type="range"
           min={MIN_INDEX}
@@ -43,17 +48,16 @@ export default function MySlider() {
           value={valueIndex}
           onChange={handleChange}
           className="
-                relative w-full appearance-none bg-transparent cursor-pointer z-10
-                
-                [&::-webkit-slider-thumb]:appearance-none
-                [&::-webkit-slider-thumb]:h-6
-                [&::-webkit-slider-thumb]:w-6
-                [&::-webkit-slider-thumb]:rounded-sm
-                [&::-webkit-slider-thumb]:bg-white
-                [&::-webkit-slider-thumb]:shadow-none
-                [&::-webkit-slider-thumb]:border
-                [&::-webkit-slider-thumb]:border-brand-500
-            "
+            relative w-full appearance-none bg-transparent cursor-pointer z-10
+            [&::-webkit-slider-thumb]:appearance-none
+            [&::-webkit-slider-thumb]:h-6
+            [&::-webkit-slider-thumb]:w-6
+            [&::-webkit-slider-thumb]:rounded-sm
+            [&::-webkit-slider-thumb]:bg-white
+            [&::-webkit-slider-thumb]:shadow-none
+            [&::-webkit-slider-thumb]:border
+            [&::-webkit-slider-thumb]:border-brand-500
+          "
         />
       </div>
 
