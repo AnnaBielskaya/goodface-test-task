@@ -5,6 +5,7 @@ import { ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { EditIcon } from "@/assets/icons/EditIcon";
 import IpSlider from "./IpSlider";
+import CustomSlider from "./Slider";
 
 const bundleDiscounts = [
   { range: "10-24", price: "3.00" },
@@ -77,7 +78,8 @@ export default function IpSelector() {
 
       {inputMode === "slider" ? (
         <div className="space-y-4">
-          <IpSlider />
+          {/*<IpSlider />*/}
+          <CustomSlider/>
           <Button
             className="w-fit text-brand-500"
             icon={<EditIcon />}
