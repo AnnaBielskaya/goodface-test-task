@@ -1,28 +1,33 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/layout/sidebar/Sidebar";
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "600"],
-});
 
 export const metadata: Metadata = {
   title: "Goodface Task",
   description: "Frontend test task",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type RootLayoutProps = {
   children: React.ReactNode;
-}>) {
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>
+      <body className="flex h-screen overflow-hidden">
         <Sidebar />
-        <main className="ml-[280px] h-screen overflow-y-auto px-12 p-6 bg-page-bg">
+
+        <main
+          className="
+            flex-1 overflow-y-auto bg-gray-100
+            pt-[88px] 
+            px-4
+            lg:pt-6     
+            lg:ml-[280px]     
+            lg:px-12
+          "
+        >
           {children}
         </main>
       </body>

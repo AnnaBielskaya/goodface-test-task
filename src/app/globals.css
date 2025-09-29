@@ -72,7 +72,7 @@
     @apply fixed left-0 top-0 h-screen w-[280px] flex-col border-r border-grey-200 bg-white;
   }
   .sidebar-header {
-    @apply flex items-center justify-between py-2 px-4;
+    @apply flex items-center justify-between py-4 lg:py-2 px-4 bg-white border-b border-grey-200 lg:border-none;
   }
   .sidebar-nav {
     @apply flex flex-col p-4 gap-4 flex-1 overflow-y-auto;
