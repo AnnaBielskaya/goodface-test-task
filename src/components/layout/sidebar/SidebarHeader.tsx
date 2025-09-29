@@ -17,7 +17,7 @@ export default function SidebarHeader({
   return (
     <div className="sidebar-header">
       <h1 className="text-h4 text-grey-800">Logo</h1>
-      <div className="flex flex-row gap-8">
+      <div className="flex flex-row gap-6">
         <NotificationButton />
         {isMobile && setIsOpen && (
           <BurgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
