@@ -1,15 +1,17 @@
 "use client";
 
-import { Menu } from "lucide-react";
 import { NotificationButton } from "./NotificationButton";
+import BurgerButton from "./BurgerButton";
 
 interface SidebarHeaderProps {
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  isOpen?: boolean;
   isMobile?: boolean;
 }
 
 export default function SidebarHeader({
   setIsOpen,
+  isOpen = false,
   isMobile = false,
 }: SidebarHeaderProps) {
   return (
@@ -18,9 +20,7 @@ export default function SidebarHeader({
       <div className="flex flex-row gap-8">
         <NotificationButton />
         {isMobile && setIsOpen && (
-          <button onClick={() => setIsOpen((prev) => !prev)}>
-            <Menu className="w-6 h-6" />
-          </button>
+          <BurgerButton isOpen={isOpen} setIsOpen={setIsOpen} />
         )}
       </div>
     </div>
