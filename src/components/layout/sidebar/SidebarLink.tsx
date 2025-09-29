@@ -12,7 +12,7 @@ export default function SidebarLink({ href, icon: Icon, endIcon: EndIcon, label,
         href={href}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
-        className={`sidebar-link text-subtitle2 ${
+        className={`sidebar-link text-subtitle2 transition-colors ${
           isActive
             ? "bg-brand-50 text-brand-500"
             : "text-grey-800 hover:bg-brand-50 hover:text-brand-500"
