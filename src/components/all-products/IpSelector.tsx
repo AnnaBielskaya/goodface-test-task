@@ -14,17 +14,35 @@ const bundleDiscounts = [
 ];
 
 function CustomQuantityBlock({ onSelectRangeClick }: { onSelectRangeClick: () => void }) {
+  const [quantity, setQuantity] = useState('');
+
+  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    
+    if (/^\d*$/.test(value)) {
+      setQuantity(value);
+    }
+  };
+
   return (
     <div className="space-y-8">
       <div className="space-y-1">
         <p className="text-subtitle2 text-grey-800">Custom quantity</p>
-        <input className="input input-md" />
+        <input
+          type="text" 
+          inputMode="numeric" 
+          pattern="[0-9]*"
+          className="input input-md"
+          placeholder="10"
+          value={quantity} 
+          onChange={handleQuantityChange}
+        />
       </div>
 
-      <Button 
-        className="w-fit text-brand-500" 
+      <Button
+        className="w-fit text-brand-500"
         label="Select from the range"
-        onClick={onSelectRangeClick} 
+        onClick={onSelectRangeClick}
       />
     </div>
   );
