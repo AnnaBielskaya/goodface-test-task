@@ -3,19 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { sidebarSections, bottomLinks } from "./sidebar.config";
-import type {
-  LinkItem,
-  NavSection,
-} from "./sidebar.config";
+import type { LinkItem, NavSection } from "./sidebar.config";
 import { Button } from "@/ui/Button";
-import React, { useState } from "react";
+import React from "react";
 import { PlusIcon } from "@/assets/sidebar-icons/PlusIcon";
-import { ChevronRight, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import SidebarFooter from "./SidebarFooter";
 import SidebarHeader from "./SidebarHeader";
 import { CollapsibleMenu } from "./CollapsibleMenu";
 
-function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
+function SidebarLink({ href, icon: Icon, endIcon: EndIcon, label, external }: LinkItem) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
@@ -35,6 +32,7 @@ function SidebarLink({ href, icon: Icon, label, external }: LinkItem) {
         <span className="text-subtitle2">{label}</span>
       </div>
       {external && <ExternalLink className="ml-auto h-4 w-4" />}
+      {EndIcon && <EndIcon className="h-4 w-4 text-brand-500" />}
     </Link>
   );
 }

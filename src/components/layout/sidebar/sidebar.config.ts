@@ -13,11 +13,13 @@ import { ResellersStatisticsIcon } from "@/assets/sidebar-icons/ResellersStatist
 import { AffiliateProgramIcon } from "@/assets/sidebar-icons/AffiliateProgramIcon";
 import { BillingIcon } from "@/assets/sidebar-icons/BillingIcon";
 import { HelpIcon } from "@/assets/sidebar-icons/HelpIcon";
+import { LiveLogIcon } from "@/assets/sidebar-icons/LiveLogIcon";
 
 export type LinkItem = {
   href: string;
   label: string;
   icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  endIcon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   external?: boolean;
 };
 
@@ -51,6 +53,7 @@ export const sidebarSections: NavSection[] = [
         href: "/live-log-monitor",
         label: "Live Log Monitor",
         icon: LogMonitorIcon,
+        endIcon: LiveLogIcon,
       },
     ],
   },
