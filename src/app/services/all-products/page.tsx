@@ -18,20 +18,17 @@ export default function Services() {
   const [subscriptionPeriod, setSubscriptionPeriod] = useState(3);
   const [location, setLocation] = useState("United Kingdom");
   const [total, setTotal] = useState(0);
-  const [discountPercentage, setDiscountPercentage] = useState(0);
 
   const pricePerIP = getPricePerIP(quantity);
 
   useEffect(() => {
     let newTotal = quantity * pricePerIP * subscriptionPeriod;
-    let discount = 0;
 
     if (subscriptionPeriod === 12) {
       newTotal = newTotal * 0.8;
     }
 
     setTotal(newTotal);
-    setDiscountPercentage(discount);
   }, [quantity, pricePerIP, subscriptionPeriod]);
 
   return (
