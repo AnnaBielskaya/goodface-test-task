@@ -54,7 +54,7 @@ export default function OrderSummary({
             subscriptionPeriod === 1 ? "month" : "months"
           }`}
         />
-        {subscriptionPeriod === 12 && (<PlanDetails label="12-month save" value="12%" />) }
+        {subscriptionPeriod === 12 && (<PlanDetails label="12-month save" value="20%" />) }
       </div>
       <div className="discount-box">
         <input

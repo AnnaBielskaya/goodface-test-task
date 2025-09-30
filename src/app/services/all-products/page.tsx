@@ -27,8 +27,7 @@ export default function Services() {
     let discount = 0;
 
     if (subscriptionPeriod === 12) {
-      discount = 12;
-      newTotal = newTotal * 0.88;
+      newTotal = newTotal * 0.8;
     }
 
     setTotal(newTotal);
