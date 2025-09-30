@@ -27,7 +27,7 @@ function SliderMarks({
         return (
           <span
             key={mark}
-            className="absolute text-body2 text-grey-500"
+            className="slider-label"
             style={style}
           >
             {mark}

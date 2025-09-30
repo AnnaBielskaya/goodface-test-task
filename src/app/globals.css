@@ -262,6 +262,9 @@
     background-position: center;
     background-image: url("/icons/thumb-icon.svg");
   }
+  .slider-label {
+    @apply text-[11px] leading-[20px] font-medium absolute text-grey-500 md:text-[14px];
+  }
 
   /* order summary */
 
