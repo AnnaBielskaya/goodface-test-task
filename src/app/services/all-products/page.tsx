@@ -9,7 +9,7 @@ import { Card } from "@/ui/Card";
 import OrderSummary from "@/components/all-products/OrderSummary";
 import { Button } from "@/ui/Button";
 import { ChevronLeftIcon } from "@/assets/icons/ChevronLeftIcon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getPricePerIP } from "@/config/pricing";
 import PaymentMethods from "@/components/all-products/PaymentMethods";
 
@@ -17,10 +17,23 @@ export default function Services() {
   const [quantity, setQuantity] = useState(100);
   const [subscriptionPeriod, setSubscriptionPeriod] = useState(3);
   const [location, setLocation] = useState("United Kingdom");
+  const [total, setTotal] = useState(0);
   const [discountPercentage, setDiscountPercentage] = useState(0);
 
   const pricePerIP = getPricePerIP(quantity);
-  const total = quantity * pricePerIP * subscriptionPeriod;
+
+  useEffect(() => {
+    let newTotal = quantity * pricePerIP * subscriptionPeriod;
+    let discount = 0;
+
+    if (subscriptionPeriod === 12) {
+      discount = 12;
+      newTotal = newTotal * 0.88;
+    }
+
+    setTotal(newTotal);
+    setDiscountPercentage(discount);
+  }, [quantity, pricePerIP, subscriptionPeriod]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -29,9 +42,7 @@ export default function Services() {
         icon={<ChevronLeftIcon />}
         label="Back to all"
       />
-      <div
-        className="content-grid"
-      >
+      <div className="content-grid">
         <div className="flex flex-col gap-6">
           <Card>
             <ProductHeader />
