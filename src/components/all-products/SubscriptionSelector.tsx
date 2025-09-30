@@ -24,7 +24,7 @@ export default function SubscriptionSelector({
         Select subscription cycle
       </h3>
 
-      <div className="space-y-2">
+      <div className="relative space-y-2">
         {subscriptionOptions.map((option) => (
           <RadioInput
             key={option.id}
