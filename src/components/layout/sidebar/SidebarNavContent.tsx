@@ -4,8 +4,15 @@ import SidebarSection from "./SidebarSection";
 import { CollapsibleMenu } from "./CollapsibleMenu";
 import SidebarLink from "./SidebarLink";
 import { sidebarSections, bottomLinks } from "./sidebar.config";
+import { Dispatch, SetStateAction } from "react";
 
-export default function SidebarNavContent() {
+interface SidebarNavContentProps {
+  setIsOpen?: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function SidebarNavContent({
+  setIsOpen,
+}: SidebarNavContentProps) {
   return (
     <>
       <Button
@@ -14,16 +21,20 @@ export default function SidebarNavContent() {
         label="Buy new proxies"
       />
       {sidebarSections.map((section) => (
-        <SidebarSection key={section.title || "home"} {...section} />
+        <SidebarSection
+          key={section.title || "home"}
+          {...section}
+          closeSidebar={setIsOpen}
+        />
       ))}
       <div>
         <ul className="sidebar-bottom-links">
           {bottomLinks.map((link) => (
             <li key={link.label}>
               {"children" in link ? (
-                <CollapsibleMenu {...link} />
+                <CollapsibleMenu {...link} closeSidebar={setIsOpen} />
               ) : (
-                <SidebarLink {...link} />
+                <SidebarLink {...link} setIsOpen={setIsOpen} />
               )}
             </li>
           ))}
@@ -31,4 +42,4 @@ export default function SidebarNavContent() {
       </div>
     </>
   );
-};
+}

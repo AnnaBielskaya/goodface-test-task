@@ -1,12 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Dispatch, SetStateAction } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import type { CollapsibleMenuType, LinkItem } from './sidebar.config';
 
-export function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenuType) {
+interface CollapsibleMenuProps extends CollapsibleMenuType {
+  closeSidebar?: Dispatch<SetStateAction<boolean>>;
+}
+
+export function CollapsibleMenu({ label, icon: Icon, children, closeSidebar }: CollapsibleMenuProps) {
   const pathname = usePathname();
   const isActive = children.some((child) => pathname === child.href);
   const [isOpen, setIsOpen] = useState(isActive);
@@ -40,10 +44,9 @@ export function CollapsibleMenu({ label, icon: Icon, children }: CollapsibleMenu
               <li key={child.href}>
                 <Link
                   href={child.href}
+                  onClick={() => closeSidebar?.(false)}
                   className={`collapsible-menu-link ${
-                    isChildActive
-                      ? "active"
-                      : ""
+                    isChildActive ? "active" : ""
                   }`}
                 >
                   <span>{child.label}</span>

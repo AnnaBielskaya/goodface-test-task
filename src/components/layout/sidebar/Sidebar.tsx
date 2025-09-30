@@ -22,11 +22,10 @@ export default function Sidebar() {
         <SidebarFooter />
       </aside>
 
-      {/* Mobile Dropdown Menu */}
       {isOpen && (
         <aside className="lg:hidden fixed top-0 pt-[72px] w-full bg-white h-full z-40 flex flex-col">
           <nav className="w-full sidebar-nav flex-grow overflow-y-auto">
-            <SidebarNavContent /> 
+            <SidebarNavContent setIsOpen={setIsOpen} />
           </nav>
           <SidebarFooter />
         </aside>
