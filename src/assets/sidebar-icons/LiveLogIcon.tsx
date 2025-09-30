@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LiveLogIcon = (props: React.SVGProps<SVGSVGElement>) => (
+export const LiveLogIcon = () => (
   <svg
     width="24"
     height="24"
